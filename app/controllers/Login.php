@@ -1,14 +1,13 @@
 <?php
 
-class Welcome extends Controller {
+class Login extends Controller {
 
     public function __construct(){
         parent:: __construct();
     }
 
     public function index() {
-        $data['title'] = 'welcome';
-        $this->load->view('pages/welcome',$data);
+        $this->load->view('pages/login');
     }
 
 }

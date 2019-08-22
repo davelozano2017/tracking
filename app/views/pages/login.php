@@ -33,7 +33,7 @@
 			<div class="content d-flex justify-content-center align-items-center">
 
 				<!-- Login card -->
-				<form class="login-form" action="index.html">
+				<form class="login-form" method="POST" action="<?=site_url('dashboard')?>">
 					<div class="card mb-0">
 						<div class="card-body">
 							<div class="text-center mb-3">

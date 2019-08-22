@@ -39,13 +39,13 @@
 					<div class="collapse" id="user-nav">
 						<ul class="nav nav-sidebar">
 							<li class="nav-item">
-								<a href="#" class="nav-link">
+								<a href="<?=site_url('admin/profile')?>" class="nav-link">
 									<i class="icon-user-plus"></i>
 									<span>Profile</span>
 								</a>
 							</li>
 							<li class="nav-item">
-								<a href="#" class="nav-link">
+								<a href="<?=site_url('admin/logout')?>" class="nav-link">
 									<i class="icon-switch2"></i>
 									<span>Logout</span>
 								</a>
@@ -62,32 +62,32 @@
 
 						<!-- Main -->
 						<li class="nav-item">
-							<a href="#" class="nav-link"><i class="icon-home5"></i><span>Dashboard</span></a>
+							<a href="<?=site_url('dashboard')?>" class="nav-link"><i class="icon-home5"></i><span>Dashboard</span></a>
 						</li>
           
             <li class="nav-item nav-item-submenu">
 							<a href="#" class="nav-link"><i class="icon-copy"></i> <span>Transactions</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
-              <li class="nav-item"><a href="#" class="nav-link">New</a></li>
-								<li class="nav-item"><a href="#" class="nav-link">All</a></li>
+              <li class="nav-item"><a href="<?=site_url('transactions/new')?>" class="nav-link">New</a></li>
+								<li class="nav-item"><a href="<?=site_url('transactions/all')?>" class="nav-link">All</a></li>
 							</ul>
             </li>
             
             <li class="nav-item nav-item-submenu">
 							<a href="#" class="nav-link"><i class="icon-users"></i> <span>Users</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
-              <li class="nav-item"><a href="#" class="nav-link">New</a></li>
-								<li class="nav-item"><a href="#" class="nav-link">All</a></li>
+              <li class="nav-item"><a href="<?=site_url('users/new')?>" class="nav-link">New</a></li>
+								<li class="nav-item"><a href="<?=site_url('users/all')?>" class="nav-link">All</a></li>
 							</ul>
             </li>
             
 
             <li class="nav-item">
-							<a href="#" class="nav-link"><i class="icon-graph"></i><span>Reports</span></a>
+							<a href="<?=site_url('reports')?>" class="nav-link"><i class="icon-graph"></i><span>Reports</span></a>
             </li>
             
             <li class="nav-item">
-							<a href="#" class="nav-link"><i class="icon-gear"></i><span>Settings</span></a>
+							<a href="<?=site_url('settings')?>" class="nav-link"><i class="icon-gear"></i><span>Settings</span></a>
 						</li>
 						<!-- /main -->
 

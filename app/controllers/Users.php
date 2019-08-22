@@ -7,11 +7,11 @@ class Users extends Controller {
     }
 
     public function index() {
-      $this->new();
+      $this->create();
     }
 
 
-    public function new() {
+    public function create() {
       $this->load->view('layouts/header');
       $this->load->view('layouts/top-navigation');
       $this->load->view('layouts/side-navigation');

@@ -68,7 +68,7 @@
             <li class="nav-item nav-item-submenu">
 							<a href="#" class="nav-link"><i class="icon-copy"></i> <span>Transactions</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
-              <li class="nav-item"><a href="<?=site_url('transactions/new')?>" class="nav-link">New</a></li>
+              <li class="nav-item"><a href="<?=site_url('transactions/create')?>" class="nav-link">create</a></li>
 								<li class="nav-item"><a href="<?=site_url('transactions/all')?>" class="nav-link">All</a></li>
 							</ul>
             </li>
@@ -76,7 +76,7 @@
             <li class="nav-item nav-item-submenu">
 							<a href="#" class="nav-link"><i class="icon-users"></i> <span>Users</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
-              <li class="nav-item"><a href="<?=site_url('users/new')?>" class="nav-link">New</a></li>
+              <li class="nav-item"><a href="<?=site_url('users/create')?>" class="nav-link">create</a></li>
 								<li class="nav-item"><a href="<?=site_url('users/all')?>" class="nav-link">All</a></li>
 							</ul>
             </li>

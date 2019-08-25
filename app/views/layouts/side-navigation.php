@@ -1,3 +1,4 @@
+<?php extract($data);?>
 	<!-- Page content -->
 	<div class="page-content">
 

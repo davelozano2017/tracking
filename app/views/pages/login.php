@@ -1,4 +1,4 @@
-
+<?php extract($data);?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,11 +10,12 @@
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
 	<link href="<?=base_url()?>assets//css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/layout.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/components.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/colors.min.css" rel="stylesheet" type="text/css">
+	<link href="<?=base_url()?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="<?=base_url()?>assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
+	<link href="<?=base_url()?>assets/css/layout.min.css" rel="stylesheet" type="text/css">
+	<link href="<?=base_url()?>assets/css/components.min.css" rel="stylesheet" type="text/css">
+	<link href="<?=base_url()?>assets/css/colors.min.css" rel="stylesheet" type="text/css">
+	<link href="<?=base_url()?>assets/parsley/parsley.css" rel="stylesheet" type="text/css">
 	<!-- /global stylesheets -->
 
 	
@@ -33,7 +34,10 @@
 			<div class="content d-flex justify-content-center align-items-center">
 
 				<!-- Login card -->
-				<form class="login-form" method="POST" action="<?=site_url('dashboard')?>">
+				<form class="login-form" method="POST" data-parsley-validate action="<?=site_url('Accounts/auth')?>">
+				<?= !isset($_SESSION['message']) ? '' : '<div class="alert bg-info text-white alert-styled-left alert-dismissible"><button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>'.$_SESSION['message'].'</a></div>'; unset($_SESSION['message']);?>  
+
+				<input type="hidden" name="token" value="<?=$token?>">
 					<div class="card mb-0">
 						<div class="card-body">
 							<div class="text-center mb-3">
@@ -43,14 +47,14 @@
 							</div>
 
 							<div class="form-group form-group-feedback form-group-feedback-left">
-								<input type="text" class="form-control" placeholder="Username">
+								<input type="email" class="form-control" name="email" placeholder="Email Address" required>
 								<div class="form-control-feedback">
-									<i class="icon-user text-muted"></i>
+									<i class="icon-envelope text-muted"></i>
 								</div>
 							</div>
 
 							<div class="form-group form-group-feedback form-group-feedback-left">
-								<input type="password" class="form-control" placeholder="Password">
+								<input type="password" class="form-control" name="password" placeholder="Password" required>
 								<div class="form-control-feedback">
 									<i class="icon-lock2 text-muted"></i>
 								</div>
@@ -86,5 +90,6 @@
 <script src="<?=base_url()?>assets/js/app.js"></script>
 <script src="<?=base_url()?>assets//js/demo_pages/login.js"></script>
 <!-- /theme JS files -->
+<script src="<?=base_url()?>assets/parsley/parsley.min.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@ textarea.parsley-error {
   color: #000;
   border:none;
   background:#fff;
-  border: 1px solid #EED3D7;
+  /* border: 1px solid #EED3D7; */
 }
 
 .parsley-errors-list {

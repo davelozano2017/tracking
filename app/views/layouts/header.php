@@ -1,4 +1,5 @@
-
+<?php extract($data);?>
+<?php extract($data);?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

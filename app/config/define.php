@@ -15,7 +15,7 @@ $configs = [
     'database' => [
         'db_type'	   => 'mysql',
         'db_host'	   => 'localhost',
-        'db_name'	   => 'tracking',
+        'db_name'	   => 'mbdo',
         'db_username'  => 'root',
         'db_password'  => ''   
     ],

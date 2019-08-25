@@ -1,3 +1,4 @@
+<?php extract($data);?>
 	
 
 		</div>

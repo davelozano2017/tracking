@@ -63,32 +63,32 @@
 
 						<!-- Main -->
 						<li class="nav-item">
-							<a href="<?=site_url('dashboard')?>" class="nav-link"><i class="icon-home5"></i><span>Dashboard</span></a>
+							<a href="<?=site_url('admin/dashboard')?>" class="nav-link"><i class="icon-home5"></i><span>Dashboard</span></a>
 						</li>
           
             <li class="nav-item nav-item-submenu">
 							<a href="#" class="nav-link"><i class="icon-copy"></i> <span>Transactions</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
-              <li class="nav-item"><a href="<?=site_url('transactions/create')?>" class="nav-link">create</a></li>
-								<li class="nav-item"><a href="<?=site_url('transactions/all')?>" class="nav-link">All</a></li>
+              <li class="nav-item"><a href="<?=site_url('admin/transactions/create')?>" class="nav-link">create</a></li>
+								<li class="nav-item"><a href="<?=site_url('admin/transactions/all')?>" class="nav-link">All</a></li>
 							</ul>
             </li>
             
             <li class="nav-item nav-item-submenu">
 							<a href="#" class="nav-link"><i class="icon-users"></i> <span>Users</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
-              <li class="nav-item"><a href="<?=site_url('users/create')?>" class="nav-link">create</a></li>
-								<li class="nav-item"><a href="<?=site_url('users/all')?>" class="nav-link">All</a></li>
+              <li class="nav-item"><a href="<?=site_url('admin/users/create')?>" class="nav-link">create</a></li>
+								<li class="nav-item"><a href="<?=site_url('admin/users/all')?>" class="nav-link">All</a></li>
 							</ul>
             </li>
             
 
             <li class="nav-item">
-							<a href="<?=site_url('reports')?>" class="nav-link"><i class="icon-graph"></i><span>Reports</span></a>
+							<a href="<?=site_url('admin/reports')?>" class="nav-link"><i class="icon-graph"></i><span>Reports</span></a>
             </li>
             
             <li class="nav-item">
-							<a href="<?=site_url('settings')?>" class="nav-link"><i class="icon-gear"></i><span>Settings</span></a>
+							<a href="<?=site_url('admin/settings')?>" class="nav-link"><i class="icon-gear"></i><span>Settings</span></a>
 						</li>
 						<!-- /main -->
 

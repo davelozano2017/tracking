@@ -1,4 +1,5 @@
 
+<?php extract($data);?>
 <div class="content-wrapper">
 
 <!-- Page header -->

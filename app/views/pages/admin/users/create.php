@@ -1,3 +1,5 @@
+<?php extract($data);?>
+<?php extract($data);?>
 
 <div class="content-wrapper">
 

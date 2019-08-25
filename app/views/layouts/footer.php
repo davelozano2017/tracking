@@ -1,3 +1,4 @@
+<?php extract($data);?>
 <!-- Footer -->
 <div class="navbar navbar-expand-lg navbar-light">
   <div class="text-center d-lg-none w-100">

@@ -4,6 +4,9 @@ class Admin extends Controller {
 
     public function __construct(){
         parent:: __construct();
+        if(!isset($_SESSION['accounts_id'])) {
+          redirect('login');
+        }
     }
 
     public function index() {
@@ -63,6 +66,11 @@ class Admin extends Controller {
       $this->load->view('pages/admin/settings');
       $this->load->view('layouts/footer');
       $this->load->view('layouts/scripts');
+    }
+
+    public function logout() {
+      unset($_SESSION['accounts_id']);
+      redirect('login','You are logged out.');
     }
 
 }

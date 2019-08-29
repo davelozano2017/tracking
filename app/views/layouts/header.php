@@ -16,6 +16,7 @@
 	<link href="<?=base_url()?>assets/css/layout.min.css" rel="stylesheet" type="text/css">
 	<link href="<?=base_url()?>assets/css/components.min.css" rel="stylesheet" type="text/css">
 	<link href="<?=base_url()?>assets/css/colors.min.css" rel="stylesheet" type="text/css">
+	<link href="<?=base_url()?>assets/parsley/parsley.css" rel="stylesheet" type="text/css">
 	<!-- /global stylesheets -->
 
 

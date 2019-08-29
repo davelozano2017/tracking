@@ -47,16 +47,13 @@
         </div>
 
         <div class="form-group row">
-          <label class="col-form-label col-lg-2">Barangay:</label>
-          <div class="col-lg-10">
-            <input type="text" class="form-control" name="email" required>
-          </div>
-        </div>
-
-        <div class="form-group row">
           <label class="col-form-label col-lg-2">City / Municipality:</label>
           <div class="col-lg-10">
-            <input type="text" class="form-control" name="email" required>
+            <select name="city_municipality_id" class="form-control">
+              <?php foreach($city_municipality as $city) { ?>
+                  <option value="<?=$city['city_municipality_id']?>"><?=$city['citymunDesc']?></option>
+              <?php } ?>
+            </select>
           </div>
         </div>
 
@@ -71,7 +68,6 @@
 
 
           <div class="col-lg-10 ml-lg-auto text-right">
-            <button type="submit" class="btn btn-light">Cancel</button>
             <button type="submit" class="btn bg-blue ml-3">Submit <i class="icon-paperplane ml-2"></i></button>
           </div>
         </div>

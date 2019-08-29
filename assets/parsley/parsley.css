@@ -2,7 +2,6 @@ input.parsley-success,
 select.parsley-success,
 textarea.parsley-success {
   background:#fff;
-  border: 1px solid #D6E9C6;
 }
 .parsley-required {
   color:#ff0000;
@@ -14,7 +13,6 @@ textarea.parsley-error {
   color: #000;
   border:none;
   background:#fff;
-  /* border: 1px solid #EED3D7; */
 }
 
 .parsley-errors-list {

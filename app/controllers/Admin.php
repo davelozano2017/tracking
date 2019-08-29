@@ -24,12 +24,13 @@ class Admin extends Controller {
 
 
     public function profile() {
-      $this->load->view('layouts/header');
-      $this->load->view('layouts/top-navigation');
-      $this->load->view('layouts/side-navigation');
-      $this->load->view('pages/admin/profile');
-      $this->load->view('layouts/footer');
-      $this->load->view('layouts/scripts');
+      $data['city_municipality'] = $this->model->use('LocationsModel')->GetAllCityMunicipality();
+      $this->load->view('layouts/header',$data);
+      $this->load->view('layouts/top-navigation',$data);
+      $this->load->view('layouts/side-navigation',$data);
+      $this->load->view('pages/admin/profile',$data);
+      $this->load->view('layouts/footer',$data);
+      $this->load->view('layouts/scripts',$data);
     }
 
     public function transactions($page) {
@@ -42,12 +43,13 @@ class Admin extends Controller {
     }
     
     public function users($page) {
-      $this->load->view('layouts/header');
-      $this->load->view('layouts/top-navigation');
-      $this->load->view('layouts/side-navigation');
-      $this->load->view('pages/admin/users/'.$page);
-      $this->load->view('layouts/footer');
-      $this->load->view('layouts/scripts');
+      $data['city_municipality'] = $this->model->use('LocationsModel')->GetAllCityMunicipality();
+      $this->load->view('layouts/header',$data);
+      $this->load->view('layouts/top-navigation',$data);
+      $this->load->view('layouts/side-navigation',$data);
+      $this->load->view('pages/admin/users/'.$page,$data);
+      $this->load->view('layouts/footer',$data);
+      $this->load->view('layouts/scripts',$data);
     }
 
     public function reports() {

@@ -1,5 +1,4 @@
 <?php extract($data);?>
-<?php extract($data);?>
 
 <div class="content-wrapper">
 
@@ -14,9 +13,9 @@
   <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
     <div class="d-flex">
       <div class="breadcrumb">
-      <a href="#" class="breadcrumb-item">Dashboard</a>
-      <a href="#" class="breadcrumb-item">Users</a>
-      <a href="#" class="breadcrumb-item active">Create</a>
+        <a href="#" class="breadcrumb-item">Dashboard</a>
+        <a href="#" class="breadcrumb-item">Users</a>
+        <a href="#" class="breadcrumb-item active">Create</a>
       </div>
 
     </div>
@@ -32,8 +31,62 @@
   <!-- Sidebars overview -->
   <div class="card">
     <div class="card-body">
-      
-    </div>
+      <form action="#" method="POST" data-parsley-validate>
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Name:</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" name="name" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Email Address:</label>
+          <div class="col-lg-10">
+            <input type="email" class="form-control" name="email" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">City / Municipality:</label>
+          <div class="col-lg-10">
+            <select name="city_municipality_id" class="form-control">
+              <?php foreach($city_municipality as $city) { ?>
+                  <option value="<?=$city['city_municipality_id']?>"><?=$city['citymunDesc']?></option>
+              <?php } ?>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Address:</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" name="email" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Role:</label>
+          <div class="col-lg-10">
+            <select name="role" class="form-control" id="">
+              <option value="Admin">Admin</option>
+              <option value="Courier">Courier</option>
+              <option value="Customer">Customer</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Password (default):</label>
+          <div class="col-lg-10">
+            <input type="text" readonly value="secret" class="form-control" name="password" required>
+          </div>
+        </div>
+
+          <div class="col-lg-10 ml-lg-auto text-right">
+            <button type="submit" class="btn btn-primary ml-3">Submit <i class="icon-paperplane ml-2"></i></button>
+          </div>
+        </div>
+      </form>
   </div>
   <!-- /sidebars overview -->
 

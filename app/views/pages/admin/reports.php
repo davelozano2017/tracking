@@ -30,7 +30,44 @@
   <!-- Sidebars overview -->
   <div class="card">
     <div class="card-body">
-      
+      <table class="table datatable-responsive">
+        <thead>
+          <tr>
+            <th>DATE</th>
+            <th>AWB#</th>
+            <th>SHIPPER</th>
+            <th>COSIGNEE</th>
+            <th>ORIGIN</th>
+            <th>DEST.</th>
+            <th>QTY.</th>
+            <th>ACTUAL WEIGHT</th>
+            <th>CWT</th>
+            <th>PAY MODE</th>
+            <th>SERVICE MODE</th>
+            <th>AMOUNT</th>
+            <th>RECEIVED BY</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php for($i=1;$i < 5; $i++) { ?>
+          <tr>
+            <td><?=date('m/d/y')?> </td>
+            <td>1002110<?=$i?> </td>
+            <td>LBC </td>
+            <td>John Doe </td>
+            <td>MNL </td>
+            <td>CGY </td>
+            <td>1 </td>
+            <td>120 </td>
+            <td>1767 </td>
+            <td>PAYMENT MODE <?=$i?></td>
+            <td>SERVICE MODE <?=$i?></td>
+            <td>₱9,100.00 </td>
+            <td>John Doe </td>
+          </tr>
+          <?php } ?>
+        </tbody>
+      </table>
     </div>
   </div>
   <!-- /sidebars overview -->

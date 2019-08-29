@@ -20,10 +20,11 @@
 	<!-- /theme JS files -->
 	<script src="<?=base_url()?>assets/parsley/parsley.min.js"></script>
 	<script src="<?=base_url()?>assets/js/plugins/tables/datatables/datatables.min.js"></script>
+	<script src="<?=base_url()?>assets/js/plugins/tables/datatables/extensions/responsive.min.js"></script>
 	<script src="<?=base_url()?>assets/js/plugins/forms/selects/select2.min.js"></script>
 
 	<script src="assets/js/app.js"></script>
-	<script src="<?=base_url()?>assets/js/demo_pages/datatables_basic.js"></script>
+	<script src="<?=base_url()?>assets/js/demo_pages/datatables_responsive.js"></script>
 	<script>
 		$('select').select2();
 	</script>

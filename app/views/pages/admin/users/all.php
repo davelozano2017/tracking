@@ -32,43 +32,43 @@
   <div class="card">
     <div class="card-body">
 
-    <table class="table datatable-basic">
-						<thead>
-							<tr>
-                <th>#</th>
-                <th>Name</th>
-								<th>Email</th>
-								<th>Role</th>
-								<th>Status</th>
-								<th class="text-center">Actions</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php for($i=1;$i < 5; $i++) { ?>
-              <tr>
-                <td><?=$i?></td>
-								<td>John Doe <?=$i?></td>
-								<td>johndoe<?=$i?>@example.com</td>
-								<td><span class="badge badge-success">Customer</span></td>
-								<td><span class="badge badge-success">Active</span></td>
-								<td class="text-center">
-									<div class="list-icons">
-										<div class="dropdown">
-											<a href="#" class="list-icons-item" data-toggle="dropdown">
-												<i class="icon-menu9"></i>
-											</a>
+    <table class="table datatable-responsive">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php for($i=1;$i < 5; $i++) { ?>
+          <tr>
+            <td><?=$i?></td>
+            <td>John Doe <?=$i?></td>
+            <td>johndoe<?=$i?>@example.com</td>
+            <td><span class="badge badge-success">Customer</span></td>
+            <td><span class="badge badge-success">Active</span></td>
+            <td class="text-center">
+              <div class="list-icons">
+                <div class="dropdown">
+                  <a href="#" class="list-icons-item" data-toggle="dropdown">
+                    <i class="icon-menu9"></i>
+                  </a>
 
-											<div class="dropdown-menu dropdown-menu-right">
-                      <a href="#" class="dropdown-item"><i class="icon-pencil"></i> Edit</a>
-                      <a href="#" class="dropdown-item"><i class="icon-trash"></i> Delete</a>
-											</div>
-										</div>
-									</div>
-								</td>
-							</tr>
-              <?php } ?>
-						</tbody>
-					</table>
+                  <div class="dropdown-menu dropdown-menu-right">
+                  <a href="#" class="dropdown-item"><i class="icon-pencil"></i> Edit</a>
+                  <a href="#" class="dropdown-item"><i class="icon-trash"></i> Delete</a>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <?php } ?>
+        </tbody>
+      </table>
       
     </div>
   </div>

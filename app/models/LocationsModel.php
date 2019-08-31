@@ -6,8 +6,8 @@ class LocationsModel extends Model {
         parent::__construct();
     }
 
-   public function GetAllCityMunicipality() {
-    return $this->db->select('city_municipality','*');
+   public function GetAllProvinces() {
+    return $this->db->select('province','*');
   }
 
 }

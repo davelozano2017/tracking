@@ -28,6 +28,10 @@ class AccountModel extends Model {
         }
     }
 
+    public function GetUserByRoles($role) {
+        return $this->db->select('accounts','*',['role' => $role]);
+    }
+
 }
 
 

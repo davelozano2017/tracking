@@ -47,11 +47,11 @@
         </div>
 
         <div class="form-group row">
-          <label class="col-form-label col-lg-2">City / Municipality:</label>
+          <label class="col-form-label col-lg-2">Province:</label>
           <div class="col-lg-10">
-            <select name="city_municipality_id" class="form-control">
-              <?php foreach($city_municipality as $city) { ?>
-                  <option value="<?=$city['city_municipality_id']?>"><?=$city['citymunDesc']?></option>
+            <select name="provinces_id" class="form-control">
+              <?php foreach($provinces as $city) { ?>
+                  <option value="<?=$city['provinces_id']?>"><?=$city['provDesc']?></option>
               <?php } ?>
             </select>
           </div>

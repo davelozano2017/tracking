@@ -35,12 +35,12 @@
     <table class="table datatable-responsive">
         <thead>
           <tr>
-            <th>#</th>
+            <th style="width:1px">#</th>
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
             <th>Status</th>
-            <th class="text-center">Actions</th>
+            <th style="width:1px"  class="text-center">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -59,8 +59,7 @@
                   </a>
 
                   <div class="dropdown-menu dropdown-menu-right">
-                  <a href="#" class="dropdown-item"><i class="icon-pencil"></i> Edit</a>
-                  <a href="#" class="dropdown-item"><i class="icon-trash"></i> Delete</a>
+                    <a href="#" class="dropdown-item"><i class="icon-eye"></i> View</a>
                   </div>
                 </div>
               </div>

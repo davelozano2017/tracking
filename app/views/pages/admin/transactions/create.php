@@ -1,5 +1,5 @@
-
 <?php extract($data);?>
+
 <div class="content-wrapper">
 
 <!-- Page header -->
@@ -31,8 +31,120 @@
   <!-- Sidebars overview -->
   <div class="card">
     <div class="card-body">
-      
-    </div>
+      <form action="#" method="POST" data-parsley-validate>
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">AWB #:</label>
+          <div class="col-lg-10">
+            <input type="number" class="form-control" name="awb_number" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Shipper:</label>
+          <div class="col-lg-10">
+            <select name="consigner" class="form-control">
+              <?php foreach($couriers as $courier) { ?>
+                  <option value="<?=$courier['accounts_id']?>"><?=$courier['name']?></option>
+              <?php } ?>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Consignee:</label>
+          <div class="col-lg-10">
+            <select name="provinces_id" class="form-control">
+              <?php foreach($customers as $customer) { ?>
+                <option value="<?=$customer['accounts_id']?>"><?=$customer['name']?></option>
+              <?php } ?>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Origin:</label>
+          <div class="col-lg-10">
+            <select name="provinces_id" class="form-control">
+              <?php foreach($provinces as $city) { ?>
+                  <option value="<?=$city['provinces_id']?>"><?=$city['provDesc']?></option>
+              <?php } ?>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Destination:</label>
+          <div class="col-lg-10">
+            <select name="provinces_id" class="form-control">
+                <?php foreach($provinces as $city) { ?>
+                    <option value="<?=$city['provinces_id']?>"><?=$city['provDesc']?></option>
+                <?php } ?>
+              </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Address: (Optional)</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" name="email">
+          </div>
+        </div>
+        
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Quantity:</label>
+          <div class="col-lg-10">
+            <input type="number" class="form-control" name="quantity" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Actual Weight:</label>
+          <div class="col-lg-10">
+
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">CWT:</label>
+          <div class="col-lg-10">
+
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Pay Mode:</label>
+          <div class="col-lg-10">
+            <select name="provinces_id" class="form-control">
+              <?php foreach($pay_modes as $pay_mode) { ?>
+                  <option value="<?=$pay_mode['pay_mode_id']?>"><?=$pay_mode['pay_mode_name']?></option>
+              <?php } ?>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Service Mode:</label>
+          <div class="col-lg-10">
+            <select name="provinces_id" class="form-control">
+              <?php foreach($service_modes as $service_mode) { ?>
+                  <option value="<?=$service_mode['service_mode_id']?>"><?=$service_mode['service_mode_name']?></option>
+              <?php } ?>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Amount:</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" name="email" required>
+          </div>
+        </div>
+
+        <div class="col-lg-10 ml-lg-auto text-right">
+            <button type="submit" class="btn btn-primary ml-3">Submit <i class="icon-paperplane ml-2"></i></button>
+          </div>
+        </div>
+      </form>
   </div>
   <!-- /sidebars overview -->
 

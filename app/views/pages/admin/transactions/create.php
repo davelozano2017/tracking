@@ -42,7 +42,7 @@
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Shipper:</label>
           <div class="col-lg-10">
-            <select name="consigner" class="form-control">
+            <select name="shipper_id" class="form-control">
               <?php foreach($couriers as $courier) { ?>
                   <option value="<?=$courier['accounts_id']?>"><?=$courier['name']?></option>
               <?php } ?>
@@ -53,7 +53,7 @@
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Consignee:</label>
           <div class="col-lg-10">
-            <select name="provinces_id" class="form-control">
+            <select name="consignee_id" class="form-control">
               <?php foreach($customers as $customer) { ?>
                 <option value="<?=$customer['accounts_id']?>"><?=$customer['name']?></option>
               <?php } ?>
@@ -64,7 +64,7 @@
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Origin:</label>
           <div class="col-lg-10">
-            <select name="provinces_id" class="form-control">
+            <select name="origin_id" class="form-control">
               <?php foreach($provinces as $city) { ?>
                   <option value="<?=$city['provinces_id']?>"><?=$city['provDesc']?></option>
               <?php } ?>
@@ -75,7 +75,7 @@
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Destination:</label>
           <div class="col-lg-10">
-            <select name="provinces_id" class="form-control">
+            <select name="destination_id" class="form-control">
                 <?php foreach($provinces as $city) { ?>
                     <option value="<?=$city['provinces_id']?>"><?=$city['provDesc']?></option>
                 <?php } ?>
@@ -86,7 +86,7 @@
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Address: (Optional)</label>
           <div class="col-lg-10">
-            <input type="text" class="form-control" name="email">
+            <input type="text" class="form-control" name="address">
           </div>
         </div>
         
@@ -100,21 +100,21 @@
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Actual Weight:</label>
           <div class="col-lg-10">
-
+            <input type="text" class="form-control" name="description" required>
           </div>
         </div>
 
         <div class="form-group row">
           <label class="col-form-label col-lg-2">CWT:</label>
           <div class="col-lg-10">
-
+            <input type="text" class="form-control" name="cwt" required>
           </div>
         </div>
 
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Pay Mode:</label>
           <div class="col-lg-10">
-            <select name="provinces_id" class="form-control">
+            <select name="pay_mode_id" class="form-control">
               <?php foreach($pay_modes as $pay_mode) { ?>
                   <option value="<?=$pay_mode['pay_mode_id']?>"><?=$pay_mode['pay_mode_name']?></option>
               <?php } ?>
@@ -125,7 +125,7 @@
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Service Mode:</label>
           <div class="col-lg-10">
-            <select name="provinces_id" class="form-control">
+            <select name="service_mode_id" class="form-control">
               <?php foreach($service_modes as $service_mode) { ?>
                   <option value="<?=$service_mode['service_mode_id']?>"><?=$service_mode['service_mode_name']?></option>
               <?php } ?>
@@ -136,7 +136,7 @@
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Amount:</label>
           <div class="col-lg-10">
-            <input type="text" class="form-control" name="email" required>
+            <input type="text" class="form-control" name="amount" required>
           </div>
         </div>
 

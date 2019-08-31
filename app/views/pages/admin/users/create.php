@@ -49,7 +49,7 @@
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Province:</label>
           <div class="col-lg-10">
-            <select name="provinces_id" class="form-control">
+            <select name="province_id" class="form-control">
               <?php foreach($provinces as $city) { ?>
                   <option value="<?=$city['provinces_id']?>"><?=$city['provDesc']?></option>
               <?php } ?>
@@ -60,7 +60,7 @@
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Address:</label>
           <div class="col-lg-10">
-            <input type="text" class="form-control" name="email" required>
+            <input type="text" class="form-control" name="address" required>
           </div>
         </div>
 

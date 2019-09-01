@@ -3,10 +3,10 @@
 <body>
 
 <!-- Main navbar -->
-<div class="navbar navbar-expand-md navbar-dark bg-indigo navbar-static">
+<div class="navbar navbar-expand-md navbar-dark bg-green navbar-static">
   <div class="navbar-brand">
-    <a href="index.html" class="d-inline-block">
-      <img src="<?=base_url()?>assets/images/logo_light.png" alt="">
+    <a href="<?=site_url('admin/dashboard')?>" class="d-inline-block">
+      <img style="" class="img-responsive" src="<?=base_url()?>assets/images/logo_light.png" alt="">
     </a>
   </div>
 
@@ -31,7 +31,7 @@
     <ul class="navbar-nav ml-md-auto">
       <li class="nav-item dropdown">
         <a href="#" class="navbar-nav-link">
-          Hello Sunshine
+          Hello John Doe Smith
         </a>
       </li>
 

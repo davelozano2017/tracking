@@ -30,8 +30,36 @@
   <!-- Sidebars overview -->
   <div class="card">
     <div class="card-body">
+
       
-    </div>
+      <form action="#">
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2"></label>
+          <div class="col-lg-10">
+            <img src="http://localhost/tracking/assets/images/logo_light.png" class="img-responsive" alt="">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Logo:</label>
+          <div class="col-lg-10">
+            <input type="file" class="form-control" >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Site Name:</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" name="email" required>
+          </div>
+        </div>
+
+          <div class="col-lg-10 ml-lg-auto text-right">
+            <button type="submit" class="btn bg-blue ml-3">Submit <i class="icon-paperplane ml-2"></i></button>
+          </div>
+        </div>
+      </form>
   </div>
   <!-- /sidebars overview -->
 

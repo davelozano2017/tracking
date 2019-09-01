@@ -69,16 +69,16 @@
             <li class="nav-item nav-item-submenu">
 							<a href="#" class="nav-link"><i class="icon-copy"></i> <span>Transactions</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
-              <li class="nav-item"><a href="<?=site_url('admin/transactions/create')?>" class="nav-link">create</a></li>
 								<li class="nav-item"><a href="<?=site_url('admin/transactions/all')?>" class="nav-link">All</a></li>
+              <li class="nav-item"><a href="<?=site_url('admin/transactions/create')?>" class="nav-link">Create</a></li>
 							</ul>
             </li>
             
             <li class="nav-item nav-item-submenu">
 							<a href="#" class="nav-link"><i class="icon-users"></i> <span>Users</span></a>
 							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
-              <li class="nav-item"><a href="<?=site_url('admin/users/create')?>" class="nav-link">create</a></li>
 								<li class="nav-item"><a href="<?=site_url('admin/users/all')?>" class="nav-link">All</a></li>
+              <li class="nav-item"><a href="<?=site_url('admin/users/create')?>" class="nav-link">Create</a></li>
 							</ul>
             </li>
             

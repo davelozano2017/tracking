@@ -53,7 +53,7 @@
           <div class="col-lg-10">
             <select name="province_id" class="form-control">
               <?php foreach($provinces as $city) { ?>
-                  <option value="<?=$city['provinces_id']?>"><?=$city['provDesc']?></option>
+                  <option value="<?=$city['province_id']?>"><?=$city['provDesc']?></option>
               <?php } ?>
             </select>
           </div>

@@ -44,22 +44,21 @@
           </tr>
         </thead>
         <tbody>
-          <?php for($i=1;$i < 5; $i++) { ?>
+          <?php $i = 0; foreach($users as $user) { ?>
           <tr>
             <td><?=$i?></td>
-            <td>John Doe <?=$i?></td>
-            <td>johndoe<?=$i?>@example.com</td>
+            <td><?=$user['name']?></td>
+            <td><?=$user['email']?></td>
             <td><span class="badge badge-success">Customer</span></td>
-            <td><span class="badge badge-success">Active</span></td>
+            <td><span class="badge badge-success"><?=$user['status'] == '0' ? 'Active' : 'Not Active';?></span></td>
             <td class="text-center">
               <div class="list-icons">
                 <div class="dropdown">
                   <a href="#" class="list-icons-item" data-toggle="dropdown">
                     <i class="icon-menu9"></i>
                   </a>
-
                   <div class="dropdown-menu dropdown-menu-right">
-                    <a href="#" class="dropdown-item"><i class="icon-eye"></i> View</a>
+                    <a href="<?=site_url('Admin/users/view/'.encode($user['accounts_id']))?>" class="dropdown-item"><i class="icon-eye"></i> View</a>
                   </div>
                 </div>
               </div>

@@ -49,8 +49,11 @@ class Admin extends Controller {
     }
     
     public function users($page) {
-      $data['provinces'] = $this->model->use('LocationsModel')->GetAllProvinces();
       $data['token'] = $_SESSION['token'];
+      $data['provinces'] = $this->model->use('LocationsModel')->GetAllProvinces();
+      if($page == 'all') {
+        $data['users'] = $this->model->use('AccountModel')->GetUserByRoles('Customer');
+      }
       $this->load->view('layouts/header',$data);
       $this->load->view('layouts/top-navigation',$data);
       $this->load->view('layouts/side-navigation',$data);

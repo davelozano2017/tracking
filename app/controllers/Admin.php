@@ -48,11 +48,14 @@ class Admin extends Controller {
       $this->load->view('layouts/scripts',$data);
     }
     
-    public function users($page) {
+    public function users($page,$id = null) {
       $data['token'] = $_SESSION['token'];
       $data['provinces'] = $this->model->use('LocationsModel')->GetAllProvinces();
       if($page == 'all') {
         $data['users'] = $this->model->use('AccountModel')->GetUserByRoles('Customer');
+      } elseif($page == 'view' && !empty($id)) {
+        $accounts_id = decode($id);
+        $data['getUsers'] = $this->model->use('AccountModel')->GetUserByid($accounts_id);
       }
       $this->load->view('layouts/header',$data);
       $this->load->view('layouts/top-navigation',$data);

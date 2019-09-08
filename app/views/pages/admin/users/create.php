@@ -28,10 +28,12 @@
 <!-- Content area -->
 <div class="content">
 
+  <?= !isset($_SESSION['message']) ? '' : '<div class="alert bg-info text-white alert-styled-left alert-dismissible"><button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>'.$_SESSION['message'].'</a></div>'; unset($_SESSION['message']);?>  
   <!-- Sidebars overview -->
   <div class="card">
     <div class="card-body">
-      <form action="#" method="POST" data-parsley-validate>
+      <form action="<?=site_url('Accounts/CreateNewUser')?>" method="POST" data-parsley-validate>
+				<input type="hidden" name="token" value="<?=$_SESSION['token']?>">
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Name:</label>
           <div class="col-lg-10">

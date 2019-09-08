@@ -34,7 +34,7 @@
   <div class="card">
     <div class="card-body">
       <form action="<?=site_url('Accounts/UpdateUserById')?>" method="POST" data-parsley-validate>
-      <input type="gi" name="accounts_id" value="<?=encode($getUsers[0]['accounts_id'])?>">
+      <input type="hidden" name="accounts_id" value="<?=encode($getUsers[0]['accounts_id'])?>">
       <input type="hidden" name="token" value="<?=$_SESSION['token']?>">
           <div class="form-group row">
             <label class="col-form-label col-lg-2">Name:</label>

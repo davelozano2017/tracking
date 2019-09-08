@@ -28,6 +28,15 @@ class AccountModel extends Model {
         }
     }
 
+    public function CreateNewUser($data) {
+        if($this->db->has('accounts',['email' => $data['email']])) {
+            redirect('admin/users/create','Email already exist');
+        } else {
+            $this->db->insert('accounts',$data);
+        }
+
+    }
+
     public function GetUserByRoles($role) {
         return $this->db->select('accounts','*',['role' => $role]);
     }

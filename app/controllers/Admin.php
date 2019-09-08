@@ -7,6 +7,7 @@ class Admin extends Controller {
         if(!isset($_SESSION['accounts_id'])) {
           redirect('login');
         }
+        $_SESSION['token'] = token;
     }
 
     public function index() {
@@ -49,6 +50,7 @@ class Admin extends Controller {
     
     public function users($page) {
       $data['provinces'] = $this->model->use('LocationsModel')->GetAllProvinces();
+      $data['token'] = $_SESSION['token'];
       $this->load->view('layouts/header',$data);
       $this->load->view('layouts/top-navigation',$data);
       $this->load->view('layouts/side-navigation',$data);

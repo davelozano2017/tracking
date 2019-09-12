@@ -33,8 +33,8 @@ class AccountModel extends Model {
             redirect('admin/users/create','Email already exist');
         } else {
             $this->db->insert('accounts',$data);
+            redirect('admin/users/all','New user has been added.');
         }
-
     }
 
     public function GetUserByRoles($role) {
@@ -45,7 +45,10 @@ class AccountModel extends Model {
         return $this->db->select('accounts','*',['role[!]' => $role]);
     }
 
-    
+    public function UpdateUserById($data) {
+        $this->db->update('accounts',$data,['accounts_id' => $data['accounts_id']]);
+        redirect('admin/users/view/'.encode($data['accounts_id']),'Data has been changed.');
+    }
     
     public function GetUserByid($accounts_id) {
         return $this->db->select('accounts', ["[>]province" => ["province_id" => "province_id"]],'*',['accounts.accounts_id' => $accounts_id ]);

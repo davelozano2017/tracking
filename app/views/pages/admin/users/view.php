@@ -54,9 +54,9 @@
             <label class="col-form-label col-lg-2">Province:</label>
             <div class="col-lg-10">
               <select name="province_id" class="form-control">
-                    <option value="<?=$getUsers[0]['province_id']?>" selected><?=$getUsers[0]['provDesc']?></option>
+                    <option value="<?=encode($getUsers[0]['province_id'])?>" selected><?=$getUsers[0]['provDesc']?></option>
                 <?php foreach($provinces as $city) { ?>
-                    <option value="<?=$city['province_id']?>"><?=$city['provDesc']?></option>
+                    <option value="<?=encode($city['province_id'])?>"><?=$city['provDesc']?></option>
                 <?php } ?>
               </select>
             </div>
@@ -77,6 +77,17 @@
                 <option value="Admin">Admin</option>
                 <option value="Courier">Courier</option>
                 <option value="Customer">Customer</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-form-label col-lg-2">Status:</label>
+            <div class="col-lg-10">
+              <select name="status" class="form-control">
+                <option value="<?=$getUsers[0]['status']?>" selected><?=$getUsers[0]['status'] == 1 ? 'Not Active' : 'Active'?></option>
+                <option value="0">Active</option>
+                <option value="1">Not Active</option>
               </select>
             </div>
           </div>

@@ -49,7 +49,7 @@
             <td><?=$i?></td>
             <td><?=$user['name']?></td>
             <td><?=$user['email']?></td>
-            <td><span class="badge badge-success">Customer</span></td>
+            <td><?=$user['role'] == 'Customer' ? '<span class="badge badge-success">Customer</span>' : '<span class="badge badge-info">Courier</span>';?></td>
             <td><span class="badge badge-success"><?=$user['status'] == '0' ? 'Active' : 'Not Active';?></span></td>
             <td class="text-center">
               <div class="list-icons">

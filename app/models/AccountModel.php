@@ -40,6 +40,12 @@ class AccountModel extends Model {
     public function GetUserByRoles($role) {
         return $this->db->select('accounts','*',['role' => $role]);
     }
+
+    public function GetUserByRolesExceptAdmin($role) {
+        return $this->db->select('accounts','*',['role[!]' => $role]);
+    }
+
+    
     
     public function GetUserByid($accounts_id) {
         return $this->db->select('accounts', ["[>]province" => ["province_id" => "province_id"]],'*',['accounts.accounts_id' => $accounts_id ]);

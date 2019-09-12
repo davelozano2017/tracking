@@ -30,4 +30,18 @@ class Accounts extends Controller {
       $this->model->use('AccountModel')->CreateNewUser($data);
   }
 
+
+  public function UpdateUserById() {
+    $data = array(
+      'accounts_id' => decode(post('accounts_id')),
+      'province_id' => decode(post('province_id')),
+      'name'        => post('name'),
+      'email'       => post('email'),
+      'address'     => post('address'),
+      'role'        => post('role'), 
+      'status'      => post('status'), 
+    );
+    $this->model->use('AccountModel')->UpdateUserById($data);
+}
+
 }

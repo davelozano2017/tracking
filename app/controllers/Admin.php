@@ -52,7 +52,7 @@ class Admin extends Controller {
       $data['token'] = $_SESSION['token'];
       $data['provinces'] = $this->model->use('LocationsModel')->GetAllProvinces();
       if($page == 'all') {
-        $data['users'] = $this->model->use('AccountModel')->GetUserByRoles('Customer');
+        $data['users'] = $this->model->use('AccountModel')->GetUserByRolesExceptAdmin('Admin');
       } elseif($page == 'view' && !empty($id)) {
         $accounts_id = decode($id);
         $data['getUsers'] = $this->model->use('AccountModel')->GetUserByid($accounts_id);

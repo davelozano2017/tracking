@@ -33,7 +33,7 @@ class AccountModel extends Model {
             redirect('admin/users/create','Email already exist');
         } else {
             $this->db->insert('accounts',$data);
-            redirect('admin/users/all','New user has been added.');
+            redirect('admin/users/create','New user has been added.');
         }
     }
 

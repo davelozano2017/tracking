@@ -28,10 +28,11 @@
 <!-- Content area -->
 <div class="content">
 
+  <?= !isset($_SESSION['message']) ? '' : '<div class="alert bg-info text-white alert-styled-left alert-dismissible"><button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>'.$_SESSION['message'].'</a></div>'; unset($_SESSION['message']);?>  
   <!-- Sidebars overview -->
   <div class="card">
     <div class="card-body">
-      <form action="#" method="POST" data-parsley-validate>
+      <form action="<?=site_url('Transactions/CreateNewTransactions')?>" method="POST" data-parsley-validate>
         <div class="form-group row">
           <label class="col-form-label col-lg-2">AWB #:</label>
           <div class="col-lg-10">
@@ -44,7 +45,7 @@
           <div class="col-lg-10">
             <select name="shipper_id" class="form-control">
               <?php foreach($couriers as $courier) { ?>
-                  <option value="<?=$courier['accounts_id']?>"><?=$courier['name']?></option>
+                  <option value="<?=encode($courier['accounts_id'])?>"><?=$courier['name']?></option>
               <?php } ?>
             </select>
           </div>
@@ -55,7 +56,7 @@
           <div class="col-lg-10">
             <select name="consignee_id" class="form-control">
               <?php foreach($customers as $customer) { ?>
-                <option value="<?=$customer['accounts_id']?>"><?=$customer['name']?></option>
+                <option value="<?=encode($customer['accounts_id'])?>"><?=$customer['name']?></option>
               <?php } ?>
             </select>
           </div>
@@ -66,7 +67,7 @@
           <div class="col-lg-10">
             <select name="origin_id" class="form-control">
               <?php foreach($provinces as $city) { ?>
-                  <option value="<?=$city['provinces_id']?>"><?=$city['provDesc']?></option>
+                  <option value="<?=encode($city['province_id'])?>"><?=$city['provDesc']?></option>
               <?php } ?>
             </select>
           </div>
@@ -77,7 +78,7 @@
           <div class="col-lg-10">
             <select name="destination_id" class="form-control">
                 <?php foreach($provinces as $city) { ?>
-                    <option value="<?=$city['provinces_id']?>"><?=$city['provDesc']?></option>
+                    <option value="<?=encode($city['province_id'])?>"><?=$city['provDesc']?></option>
                 <?php } ?>
               </select>
           </div>
@@ -116,7 +117,7 @@
           <div class="col-lg-10">
             <select name="pay_mode_id" class="form-control">
               <?php foreach($pay_modes as $pay_mode) { ?>
-                  <option value="<?=$pay_mode['pay_mode_id']?>"><?=$pay_mode['pay_mode_name']?></option>
+                  <option value="<?=encode($pay_mode['pay_mode_id'])?>"><?=$pay_mode['pay_mode_name']?></option>
               <?php } ?>
             </select>
           </div>
@@ -127,7 +128,7 @@
           <div class="col-lg-10">
             <select name="service_mode_id" class="form-control">
               <?php foreach($service_modes as $service_mode) { ?>
-                  <option value="<?=$service_mode['service_mode_id']?>"><?=$service_mode['service_mode_name']?></option>
+                  <option value="<?=encode($service_mode['service_mode_id'])?>"><?=$service_mode['service_mode_name']?></option>
               <?php } ?>
             </select>
           </div>

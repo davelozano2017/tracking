@@ -22,6 +22,13 @@ function hashing($password) {
 	return password_hash($password,PASSWORD_DEFAULT);
 }
 
+function dd($data) {
+	echo '<pre>';
+	var_dump($data);
+	echo '</pre>';
+	exit;
+}
+
 function verify($password,$hash) {
 	return password_verify($password,$hash);
 }

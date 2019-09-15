@@ -19,11 +19,10 @@ class TransactionsModel extends Model {
         return $this->db->select('transactions','*');
     }
 
-    public function GetAllTransactionsA() {
-        return $this->db->select('transactions', [
-            "[>]province" => ["destination_id"  => "province_id"],
-        ],'*');
+    public function GetAllByTransactionsId($transactions_id) {
+        return $this->db->select('transactions','*',['transactions_id' => $transactions_id]);
     }
+
 
 }
 

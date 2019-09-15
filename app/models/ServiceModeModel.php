@@ -6,8 +6,12 @@ class ServiceModeModel extends Model {
         parent::__construct();
     }
 
-   public function GetList() {
+  public function GetList() {
     return $this->db->select('service_mode','*');
+  }
+
+  public function GetListById($service_mode_id) {
+    return $this->db->select('service_mode','*',['service_mode_id' => $service_mode_id]);
   }
 
 }

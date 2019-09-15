@@ -34,10 +34,11 @@
   <div class="card">
     <div class="card-body">
       <form action="<?=site_url('Transactions/UpdateTransactions')?>" method="POST" data-parsley-validate>
+        <input type="hidden" class="form-control" name="transactions_id" value="<?=encode($value[0]['transactions_id'])?>" required>
         <div class="form-group row">
           <label class="col-form-label col-lg-2">AWB #:</label>
           <div class="col-lg-10">
-            <input type="number" class="form-control" name="awb_number" value="<?=$value[0]['awbNumber']?>" required>
+          <input type="number" class="form-control" name="awb_number" value="<?=$value[0]['awbNumber']?>" required>
           </div>
         </div>
 

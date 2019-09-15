@@ -24,6 +24,11 @@ class TransactionsModel extends Model {
     }
 
 
+    public function UpdateTransactions($data) {
+        $this->db->update('transactions',$data,['transactions_id' => $data['transactions_id']]);
+        redirect('admin/transactions/view/'.encode($data['transactions_id']),'Data has been changed.');
+    }
+
 }
 
 

@@ -60,7 +60,7 @@
                   </a>
 
                   <div class="dropdown-menu dropdown-menu-right">
-                    <a href="<?=site_url('admin/transactions/edit/'.encode($value[0]['transactions_id']))?>" class="dropdown-item"><i class="icon-eye"></i> View</a>
+                    <a href="<?=site_url('admin/transactions/view/'.encode($value[0]['transactions_id']))?>" class="dropdown-item"><i class="icon-eye"></i> View</a>
                   </div>
                 </div>
               </div>

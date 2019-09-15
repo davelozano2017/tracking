@@ -15,6 +15,16 @@ class TransactionsModel extends Model {
         }
     }
 
+    public function GetAll() {
+        return $this->db->select('transactions','*');
+    }
+
+    public function GetAllTransactionsA() {
+        return $this->db->select('transactions', [
+            "[>]province" => ["destination_id"  => "province_id"],
+        ],'*');
+    }
+
 }
 
 

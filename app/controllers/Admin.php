@@ -34,12 +34,33 @@ class Admin extends Controller {
       $this->load->view('layouts/scripts',$data);
     }
 
-    public function transactions($page) {
-      $data['provinces'] = $this->model->use('LocationsModel')->GetAllProvinces();
+    public function transactions($page,$id = null) {
+      $data['provinces']         = $this->model->use('LocationsModel')->GetAllProvinces();
       $data['couriers']          = $this->model->use('AccountModel')->GetUserByRoles('Courier');
       $data['customers']         = $this->model->use('AccountModel')->GetUserByRoles('Customer');
       $data['service_modes']     = $this->model->use('ServiceModeModel')->GetList();
       $data['pay_modes']         = $this->model->use('PayModeModel')->GetList();
+      $queryAll                  = $this->model->use('TransactionsModel')->GetAll();
+      foreach($queryAll as $row) {
+        $queryA                    = $this->model->use('AccountModel')->GetUserByid($row['accounts_id']);
+        $queryB                    = $this->model->use('AccountModel')->GetUserByid($row['shipper_id']);
+        $queryC                    = $this->model->use('LocationsModel')->GetAllProvincesById($row['origin_id']);
+        $queryD                    = $this->model->use('LocationsModel')->GetAllProvincesById($row['destination_id']);
+        $data['transactions'][]    = array(
+          array(
+            'transactions_id'      => $row['transactions_id'],
+            'awbNumber'            => $row['awb_number'],
+            'ConsigneeName'        => $queryA[0]['name'],
+            'ShipperName'          => $queryB[0]['name'],
+            'Origin'               => $queryC[0]['provDesc'],
+            'Destination'          => $queryD[0]['provDesc'],
+          )
+        );
+      }
+      
+     
+
+
       $this->load->view('layouts/header',$data);
       $this->load->view('layouts/top-navigation',$data);
       $this->load->view('layouts/side-navigation',$data);

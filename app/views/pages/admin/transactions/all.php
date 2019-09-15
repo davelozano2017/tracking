@@ -31,7 +31,6 @@
   <!-- Sidebars overview -->
   <div class="card">
     <div class="card-body">
-
     <table class="table datatable-responsive">
         <thead>
           <tr>
@@ -45,14 +44,14 @@
           </tr>
         </thead>
         <tbody>
-          <?php for($i=1;$i < 5; $i++) { ?>
+          <?php $i=1; foreach($transactions as $key => $value) { ?>
           <tr>
-            <td><?=$i?></td>
-            <td>10010029<?=$i?></td>
-            <td>Shipper<?=$i?></td>
-            <td>Consignee<?=$i?></td>
-            <td>Origin<?=$i?></td>
-            <td>Destination<?=$i?></td>
+            <td><?=$i++?></td>
+            <td><?=$value[0]['awbNumber']?></td>
+            <td><?=$value[0]['ShipperName']?></td>
+            <td><?=$value[0]['ConsigneeName']?></td>
+            <td><?=$value[0]['Origin']?></td>
+            <td><?=$value[0]['Destination']?></td>
             <td class="text-center">
               <div class="list-icons">
                 <div class="dropdown">
@@ -61,7 +60,7 @@
                   </a>
 
                   <div class="dropdown-menu dropdown-menu-right">
-                    <a href="#" class="dropdown-item"><i class="icon-eye"></i> View</a>
+                    <a href="<?=site_url('admin/transactions/edit/'.encode($value[0]['transactions_id']))?>" class="dropdown-item"><i class="icon-eye"></i> View</a>
                   </div>
                 </div>
               </div>

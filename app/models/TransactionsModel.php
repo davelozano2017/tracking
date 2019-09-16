@@ -19,10 +19,23 @@ class TransactionsModel extends Model {
         return $this->db->select('transactions','*');
     }
 
+    public function CountAllTransactions() {
+        return $this->db->count('transactions','*');
+    }    
+
     public function GetAllByTransactionsId($transactions_id) {
         return $this->db->select('transactions','*',['transactions_id' => $transactions_id]);
     }
 
+    public function GetAllTransctions() {
+        return $this->db->select('transactions','*', [
+            "ORDER" => [
+                "date_create" => "ASC"
+            ],
+            "LIMIT" => 10
+        ]);
+
+    }
 
     public function UpdateTransactions($data) {
         $this->db->update('transactions',$data,['transactions_id' => $data['transactions_id']]);

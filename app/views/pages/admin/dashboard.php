@@ -36,7 +36,7 @@
             </div>
 
             <div class="media-body text-right">
-              <h3 class="font-weight-semibold mb-0">652,549</h3>
+              <h3 class="font-weight-semibold mb-0"><?=number_format($countTransactions)?></h3>
               <span class="text-uppercase font-size-sm text-muted">All Transactions</span>
             </div>
           </div>
@@ -51,7 +51,7 @@
             </div>
 
             <div class="media-body text-right">
-              <h3 class="font-weight-semibold mb-0">652,549</h3>
+              <h3 class="font-weight-semibold mb-0"><?=number_format($couriers)?></h3>
               <span class="text-uppercase font-size-sm text-muted">Courier</span>
             </div>
           </div>
@@ -66,7 +66,7 @@
             </div>
 
             <div class="media-body text-right">
-              <h3 class="font-weight-semibold mb-0">652,549</h3>
+              <h3 class="font-weight-semibold mb-0"><?=number_format($customers)?></h3>
               <span class="text-uppercase font-size-sm text-muted">Customers</span>
             </div>
           </div>
@@ -92,14 +92,14 @@
             </tr>
           </thead>
           <tbody>
-            <?php for($i=1;$i <= 10; $i++) { ?>
+            <?php $i = 1; foreach($transactions as $key => $value) { ?>
             <tr>
-              <td><?=$i?></td>
-              <td>10010029<?=$i?></td>
-              <td>Shipper<?=$i?></td>
-              <td>Consignee<?=$i?></td>
-              <td>Origin<?=$i?></td>
-              <td>Destination<?=$i?></td>
+              <td><?=$i++?></td>
+              <td><?=$value[0]['awbNumber']?></td>
+              <td><?=$value[0]['ShipperName']?></td>
+              <td><?=$value[0]['ConsigneeName']?></td>
+              <td><?=$value[0]['Origin']?></td>
+              <td><?=$value[0]['Destination']?></td>
               <td class="text-center">
                 <div class="list-icons">
                   <div class="dropdown">
@@ -108,7 +108,7 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
-                      <a href="#" class="dropdown-item"><i class="icon-eye"></i> View</a>
+                      <a href="<?=site_url('admin/transactions/view/'.encode($value[0]['transactions_id']))?>" class="dropdown-item"><i class="icon-eye"></i> View</a>
                     </div>
                   </div>
                 </div>

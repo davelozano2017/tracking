@@ -41,6 +41,11 @@ class AccountModel extends Model {
         return $this->db->select('accounts','*',['role' => $role]);
     }
 
+    public function CoutUserByRoles($role) {
+        return $this->db->count('accounts','*',['role' => $role]);
+    }
+    
+
     public function GetUserByRolesExceptAdmin($role) {
         return $this->db->select('accounts','*',['role[!]' => $role]);
     }

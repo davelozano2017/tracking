@@ -122,19 +122,23 @@
 						<?php } elseif($_SESSION['role'] == 'Courier') { ?>
 							<!-- Main -->
 						<li class="nav-item">
-							<a href="<?=site_url('admin/dashboard')?>" class="nav-link"><i class="icon-home5"></i><span>Dashboard</span></a>
+							<a href="<?=site_url('courier/dashboard')?>" class="nav-link"><i class="icon-home5"></i><span>Dashboard</span></a>
 						</li>
 
 						<li class="nav-item">
-							<a href="<?=site_url('admin/dashboard')?>" class="nav-link"><i class="icon-copy"></i><span>Transactions</span></a>
+							<a href="<?=site_url('courier/transactions')?>" class="nav-link"><i class="icon-copy"></i><span>Transactions</span></a>
 						</li>
 
-						<li class="nav-item">
-							<a href="<?=site_url('admin/dashboard')?>" class="nav-link"><i class="icon-users"></i><span>Drivers</span></a>
-						</li>
+						<li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-users"></i> <span>Drivers</span></a>
+							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
+								<li class="nav-item"><a href="<?=site_url('courier/drivers/all')?>" class="nav-link">All</a></li>
+              <li class="nav-item"><a href="<?=site_url('courier/drivers/create')?>" class="nav-link">Create</a></li>
+							</ul>
+            </li>
 
 						<li class="nav-item">
-							<a href="<?=site_url('admin/dashboard')?>" class="nav-link"><i class="icon-graph"></i><span>Reports</span></a>
+							<a href="<?=site_url('courier/dashboard')?>" class="nav-link"><i class="icon-graph"></i><span>Reports</span></a>
 						</li>
 
 					

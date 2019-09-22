@@ -31,7 +31,7 @@
   <!-- Sidebars overview -->
   <div class="card">
     <div class="card-body">
-      <form data-parsley-validate action="<?=site_url('Accounts/UpdateProfile')?>" method="POST">
+    <form data-parsley-validate action="<?=site_url('Accounts/UpdateProfile')?>" method="POST">
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Name:</label>
           <div class="col-lg-10">

@@ -14,6 +14,16 @@ class Courier extends Controller {
       $this->profile();
     }
 
+    public function profile() {
+      $data['provinces'] = $this->model->use('LocationsModel')->GetAllProvinces();
+      $this->load->view('layouts/header',$data);
+      $this->load->view('layouts/top-navigation',$data);
+      $this->load->view('layouts/side-navigation',$data);
+      $this->load->view('pages/courier/profile',$data);
+      $this->load->view('layouts/footer',$data);
+      $this->load->view('layouts/scripts',$data);
+    }
+
     public function dashboard() {
       $data['couriers']          = $this->model->use('AccountModel')->CoutUserByRoles('Courier');
       $data['customers']         = $this->model->use('AccountModel')->CoutUserByRoles('Customer');

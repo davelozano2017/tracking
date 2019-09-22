@@ -39,6 +39,7 @@
 
 					<div class="collapse" id="user-nav">
 						<ul class="nav nav-sidebar">
+							<?php if($_SESSION['role'] == 'Admin') { ?>
 							<li class="nav-item">
 								<a href="<?=site_url('admin/profile')?>" class="nav-link">
 									<i class="icon-user-plus"></i>
@@ -51,6 +52,33 @@
 									<span>Logout</span>
 								</a>
 							</li>
+						<?php } elseif($_SESSION['role'] == 'Courier') { ?>
+							<li class="nav-item">
+								<a href="<?=site_url('courier/profile')?>" class="nav-link">
+									<i class="icon-user-plus"></i>
+									<span>Profile</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?=site_url('courier/logout')?>" class="nav-link">
+									<i class="icon-switch2"></i>
+									<span>Logout</span>
+								</a>
+							</li>
+						<?php } elseif($_SESSION['role'] == 'Driver') { ?>
+							<li class="nav-item">
+								<a href="<?=site_url('driver/profile')?>" class="nav-link">
+									<i class="icon-user-plus"></i>
+									<span>Profile</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?=site_url('driver/logout')?>" class="nav-link">
+									<i class="icon-switch2"></i>
+									<span>Logout</span>
+								</a>
+							</li>
+						<?php } ?>
 						</ul>
 					</div>
 				</div>
@@ -60,7 +88,7 @@
 				<!-- Main navigation -->
 				<div class="card card-sidebar-mobile">
 					<ul class="nav nav-sidebar" data-nav-type="accordion">
-
+						<?php if($_SESSION['role'] == 'Admin') { ?> 
 						<!-- Main -->
 						<li class="nav-item">
 							<a href="<?=site_url('admin/dashboard')?>" class="nav-link"><i class="icon-home5"></i><span>Dashboard</span></a>
@@ -91,6 +119,27 @@
 							<a href="<?=site_url('admin/settings')?>" class="nav-link"><i class="icon-gear"></i><span>Settings</span></a>
 						</li>
 						<!-- /main -->
+						<?php } elseif($_SESSION['role'] == 'Courier') { ?>
+							<!-- Main -->
+						<li class="nav-item">
+							<a href="<?=site_url('admin/dashboard')?>" class="nav-link"><i class="icon-home5"></i><span>Dashboard</span></a>
+						</li>
+
+						<li class="nav-item">
+							<a href="<?=site_url('admin/dashboard')?>" class="nav-link"><i class="icon-copy"></i><span>Transactions</span></a>
+						</li>
+
+						<li class="nav-item">
+							<a href="<?=site_url('admin/dashboard')?>" class="nav-link"><i class="icon-users"></i><span>Drivers</span></a>
+						</li>
+
+						<li class="nav-item">
+							<a href="<?=site_url('admin/dashboard')?>" class="nav-link"><i class="icon-graph"></i><span>Reports</span></a>
+						</li>
+
+					
+						<!-- /main -->
+						<?php } ?>
 
 				
 					</ul>

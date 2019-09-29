@@ -33,7 +33,8 @@
   <div class="card">
     <div class="card-body">
       <form action="<?=site_url('Accounts/CreateNewUser')?>" method="POST" data-parsley-validate>
-				<input type="hidden" name="token" value="<?=$_SESSION['token']?>">
+      <input type="hidden" name="token" value="<?=$_SESSION['token']?>">
+      <input type="hidden" name="accounts_id" value="<?=encode($_SESSION['accounts_id'])?>">
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Name:</label>
           <div class="col-lg-10">
@@ -63,6 +64,13 @@
           <label class="col-form-label col-lg-2">Address:</label>
           <div class="col-lg-10">
             <input type="text" class="form-control" name="address" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Membership Date:</label>
+          <div class="col-lg-10">
+            <input type="date" class="form-control" name="date" required>
           </div>
         </div>
 

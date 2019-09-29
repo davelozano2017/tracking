@@ -37,6 +37,16 @@ class Courier extends Controller {
       $this->load->view('layouts/scripts',$data);
     }
 
+    public function drivers($page,$id = null) {
+      $data['title'] = 'Drivers';
+      $this->load->view('layouts/header',$data);
+      $this->load->view('layouts/top-navigation',$data);
+      $this->load->view('layouts/side-navigation',$data);
+      $this->load->view('pages/courier/drivers/all',$data);
+      $this->load->view('layouts/footer',$data);
+      $this->load->view('layouts/scripts',$data);
+    }
+
     public function logout() {
       unset($_SESSION['accounts_id']);
       redirect('login','You are logged out.');

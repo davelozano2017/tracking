@@ -28,12 +28,15 @@ class AccountModel extends Model {
         }
     }
 
-    public function CreateNewUser($data) {
+    public function CreateNewUser($data,$driver) {
+        $path = $_SESSION['role'] == 'Admin' ? 'admin/users' : 'courier/drivers';
         if($this->db->has('accounts',['email' => $data['email']])) {
-            redirect('admin/users/create','Email already exist');
+        redirect($path.'/create','Email already exist');
         } else {
             $this->db->insert('accounts',$data);
-            redirect('admin/users/create','New user has been added.');
+            $this->db->insert('drivers',$driver);
+
+            redirect($path.'/create','New user has been added.');
         }
     }
 

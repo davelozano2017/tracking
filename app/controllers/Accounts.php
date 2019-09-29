@@ -27,7 +27,15 @@ class Accounts extends Controller {
       'role'        => post('role'), 
       'status'      => 1
     );
-    $this->model->use('AccountModel')->CreateNewUser($data);
+    if(post('role') == 'Driver') {
+      $driver = array(
+        'accounts_id' => decode(post('accounts_id')),
+        'date'        => post('date')
+      );
+    } else {
+      $driver = array();
+    }
+    $this->model->use('AccountModel')->CreateNewUser($data,$driver);
 }
 
 

@@ -48,6 +48,7 @@ class Accounts extends Controller {
       'address'     => post('address'),
       'role'        => post('role'), 
       'status'      => post('status'), 
+      'date'        => post('date') ? post('date') : ''
     );
     $this->model->use('AccountModel')->UpdateUserById($data);
 }

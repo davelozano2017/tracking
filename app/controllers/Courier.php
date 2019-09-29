@@ -40,8 +40,10 @@ class Courier extends Controller {
     public function drivers($page,$id = null) {
       $data['title']           = 'Drivers';
       $data['id']              = decode($id);
-      $data['ShowAllDrivers'] = $this->model->use('CourierModel')->GetAllDriversByAccountId($_SESSION['accounts_id']);
+      $data['ShowAllDrivers']  = $this->model->use('CourierModel')->GetAllDriversByAccountId($_SESSION['accounts_id']);
       $data['provinces']       = $this->model->use('LocationsModel')->GetAllProvinces();
+      $accounts_id = decode($id);
+      $data['getUsers'] = $this->model->use('AccountModel')->GetUserByid($accounts_id);
       $this->load->view('layouts/header',$data);
       $this->load->view('layouts/top-navigation',$data);
       $this->load->view('layouts/side-navigation',$data);

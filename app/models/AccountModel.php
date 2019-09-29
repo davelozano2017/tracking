@@ -62,8 +62,9 @@ class AccountModel extends Model {
     }
 
     public function UpdateUserById($data) {
+        $path = $_SESSION['role'] == 'Admin' ? 'admin/users' : 'courier/drivers';
         $this->db->update('accounts',$data,['accounts_id' => $data['accounts_id']]);
-        redirect('admin/users/view/'.encode($data['accounts_id']),'Data has been changed.');
+        redirect($path.'/view/'.encode($data['accounts_id']),'Data has been changed.');
     }
     
     public function GetUserByid($accounts_id) {

@@ -25,17 +25,17 @@ class Accounts extends Controller {
       'password'    => hashing(post('password')),
       'address'     => post('address'),
       'role'        => post('role'), 
-      'status'      => 1
+      'status'      => 1,
+      'date'        => post('date')
     );
     if(post('role') == 'Driver') {
       $driver = array(
         'accounts_id' => decode(post('accounts_id')),
-        'date'        => post('date')
-      );
+      ); 
     } else {
-      $driver = array();
+      $driver = null;
     }
-    $this->model->use('AccountModel')->CreateNewUser($data,$driver);
+      $this->model->use('AccountModel')->CreateNewUser($data,$driver);
 }
 
 

@@ -43,13 +43,13 @@
           </tr>
         </thead>
         <tbody>
-          <?php for($i=1;$i<=5;$i++) { ?>
+          <?php $i=1; foreach($ShowAllDrivers as $drivers) { ?>
           <tr>
-            <td><?=$i?></td>
-            <td>John Doe <?=$i?></td>
-            <td>JohnDoe<?=$i?>@gmail.com</td>
-            <td><span class="badge badge-success">Not Active</span></td>
-            <td><?=date('F d, Y')?></td>
+            <td><?=$i++?></td>
+            <td><?=$drivers[0]['name']?></td>
+            <td><?=$drivers[0]['email']?></td>
+            <td><span class="badge badge-success"><?=$drivers[0]['status'] == 1 ? 'Not Active' : 'Active'?></span></td>
+            <td><?=date('F d, Y',strtotime($drivers[0]['date']))?></td>
             <td class="text-center">
               <div class="list-icons">
                 <div class="dropdown">
@@ -57,7 +57,7 @@
                     <i class="icon-menu9"></i>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right">
-                    <a href="<?=site_url('courier/drivers/view/'.encode($i))?>" class="dropdown-item"><i class="icon-eye"></i> View</a>
+                    <a href="<?=site_url('courier/drivers/view/'.encode($drivers[0]['accounts_id']))?>" class="dropdown-item"><i class="icon-eye"></i> View</a>
                   </div>
                 </div>
               </div>

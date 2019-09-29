@@ -38,11 +38,12 @@ class Courier extends Controller {
     }
 
     public function drivers($page,$id = null) {
-      $data['title'] = 'Drivers';
+      $data['title']      = 'Drivers';
+      $data['provinces']  = $this->model->use('LocationsModel')->GetAllProvinces();
       $this->load->view('layouts/header',$data);
       $this->load->view('layouts/top-navigation',$data);
       $this->load->view('layouts/side-navigation',$data);
-      $this->load->view('pages/courier/drivers/all',$data);
+      $this->load->view('pages/courier/drivers/'.$page,$data);
       $this->load->view('layouts/footer',$data);
       $this->load->view('layouts/scripts',$data);
     }

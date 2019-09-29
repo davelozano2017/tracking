@@ -39,6 +39,7 @@ class Courier extends Controller {
 
     public function drivers($page,$id = null) {
       $data['title']      = 'Drivers';
+      $data['id']         = decode($id);
       $data['provinces']  = $this->model->use('LocationsModel')->GetAllProvinces();
       $this->load->view('layouts/header',$data);
       $this->load->view('layouts/top-navigation',$data);

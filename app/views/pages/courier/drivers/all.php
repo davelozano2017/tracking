@@ -57,7 +57,7 @@
                     <i class="icon-menu9"></i>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right">
-                    <a href="http://localhost/tracking/Admin/users/view/OTQ1NTg1NC4zMg==" class="dropdown-item"><i class="icon-eye"></i> View</a>
+                    <a href="<?=site_url('courier/drivers/view/'.encode($i))?>" class="dropdown-item"><i class="icon-eye"></i> View</a>
                   </div>
                 </div>
               </div>

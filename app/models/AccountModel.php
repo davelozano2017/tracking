@@ -48,6 +48,10 @@ class AccountModel extends Model {
         }
     }
 
+    public function countDriversByAccountsId($accounts_id) {
+        return $this->db->count('drivers','*',['accounts_id' => $accounts_id]);
+    }
+
     public function GetUserByRoles($role) {
         return $this->db->select('accounts','*',['role' => $role]);
     }

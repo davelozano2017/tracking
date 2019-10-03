@@ -21,7 +21,22 @@ class TransactionsModel extends Model {
 
     public function CountAllTransactions() {
         return $this->db->count('transactions','*');
-    }    
+    } 
+    
+    public function CountAllTransactionsById($accounts_id) {
+        return $this->db->count('transactions','*', ['shipper_id' => $accounts_id]);
+    } 
+
+    public function GetAllTransctionsShipperIdWithLimit($accounts_id) {
+        return $this->db->select('transactions','*', 
+            ["ORDER" => [
+                "date_create" => "ASC"
+            ],
+            "LIMIT" => 10,
+            'shipper_id' => $accounts_id
+            ]
+        );
+    }
 
     public function GetAllByTransactionsId($transactions_id) {
         return $this->db->select('transactions','*',['transactions_id' => $transactions_id]);
@@ -36,6 +51,11 @@ class TransactionsModel extends Model {
         ]);
 
     }
+
+    public function countDeliveredByAccounstId($accounts_id) {
+        return $this->db->count('tracking','*',['accounts_id' => $accounts_id,'status' => 0]);
+    }
+
 
     public function UpdateTransactions($data) {
         $this->db->update('transactions',$data,['transactions_id' => $data['transactions_id']]);

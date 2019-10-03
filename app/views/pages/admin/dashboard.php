@@ -36,7 +36,7 @@
             </div>
 
             <div class="media-body text-right">
-              <h3 class="font-weight-semibold mb-0"><?=number_format($countTransactions)?></h3>
+            <h3 class="font-weight-semibold mb-0"><?=number_format($countTransactions)?></h3>
               <span class="text-uppercase font-size-sm text-muted">All Transactions</span>
             </div>
           </div>

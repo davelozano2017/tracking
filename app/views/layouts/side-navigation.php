@@ -126,7 +126,7 @@
 						</li>
 
 						<li class="nav-item">
-							<a href="<?=site_url('courier/transactions')?>" class="nav-link"><i class="icon-copy"></i><span>Transactions</span></a>
+							<a href="<?=site_url('courier/transactions/all')?>" class="nav-link"><i class="icon-copy"></i><span>Transactions</span></a>
 						</li>
 
 						<li class="nav-item nav-item-submenu">

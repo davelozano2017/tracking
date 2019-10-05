@@ -16,15 +16,20 @@ class TransactionsModel extends Model {
     }
 
     public function GetAll() {
-        return $this->db->select('transactions','*');
+        return $this->db->select('transactions','*',['GROUP' => 'awb_number']);
     }
 
     public function CountAllTransactions() {
-        return $this->db->count('transactions','*');
+        return $this->db->count('transactions','*',["GROUP" => 'awb_number']);
     } 
     
     public function CountAllTransactionsById($accounts_id) {
-        return $this->db->count('transactions','*', ['shipper_id' => $accounts_id]);
+        $query = $this->db->select('transactions','*', 
+        [
+        "GROUP" => 'awb_number',
+        'shipper_id' => $accounts_id
+        ]);
+        return count($query);
     } 
 
     public function GetAllTransctionsShipperIdWithLimit($accounts_id) {
@@ -33,10 +38,22 @@ class TransactionsModel extends Model {
                 "date_create" => "ASC"
             ],
             "LIMIT" => 10,
+            "GROUP" => 'awb_number',
             'shipper_id' => $accounts_id
             ]
         );
     }
+
+    public function GetAllTransctionsShipperIdWithOutLimit($accounts_id) {
+        return $this->db->select('transactions','*', 
+            [
+            "GROUP" => 'awb_number',
+            'shipper_id' => $accounts_id
+            ]
+        );
+    }
+
+    
 
     public function GetAllByTransactionsId($transactions_id) {
         return $this->db->select('transactions','*',['transactions_id' => $transactions_id]);
@@ -45,7 +62,7 @@ class TransactionsModel extends Model {
     public function GetAllTransctions() {
         return $this->db->select('transactions','*', [
             "ORDER" => [
-                "date_create" => "ASC"
+                "date_create" => "ASC",
             ],
             "LIMIT" => 10
         ]);

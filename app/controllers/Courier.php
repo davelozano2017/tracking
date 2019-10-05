@@ -93,22 +93,30 @@ class Courier extends Controller {
       redirect('login','You are logged out.');
     }
 
-    public function transactions() {
+    public function transactions($page, $id = null) {
+      $data['provinces']         = $this->model->use('LocationsModel')->GetAllProvinces();
       $data['countDrivers']      = $this->model->use('AccountModel')->countDriversByAccountsId($_SESSION['accounts_id']);
       $data['countDelivered']    = $this->model->use('TransactionsModel')->countDeliveredByAccounstId($_SESSION['accounts_id']);
       $data['countTransactions'] = $this->model->use('TransactionsModel')->CountAllTransactionsById($_SESSION['accounts_id']);
-      $queryAll                  = $this->model->use('TransactionsModel')->GetAllTransctionsShipperIdWithOutLimit($_SESSION['accounts_id']);
+      if($id == null) {
+        $queryAll                  = $this->model->use('TransactionsModel')->GetAllTransctionsShipperIdWithOutLimit($_SESSION['accounts_id']);
+      } elseif($page == 'view') {
+        $queryAll                  = $this->model->use('TransactionsModel')->GetAllByTransactionsId(decode($id));
+      } else {
+        $queryAll                  = $this->model->use('TransactionsModel')->GetAllTransctionsByAwbNumber(decode($id));
+      }
+      
       foreach($queryAll as $row) {
         $queryA                    = $this->model->use('AccountModel')->GetUserByid($row['accounts_id']);
         $queryB                    = $this->model->use('AccountModel')->GetUserByid($row['shipper_id']);
         $queryC                    = $this->model->use('LocationsModel')->GetAllProvincesById($row['origin_id']);
         $queryD                    = $this->model->use('LocationsModel')->GetAllProvincesById($row['destination_id']);
-        $payMode                 = $this->model->use('PayModeModel')->GetListById($row['pay_mode_id']);
-        $serviceMode             = $this->model->use('ServiceModeModel')->GetListById($row['service_mode_id']);
-        $payModesId              = $payMode[0]['pay_mode_id'];
-        $payModesName            = $payMode[0]['pay_mode_name'];
-        $serviceModesId          = $serviceMode[0]['service_mode_id'];
-        $serviceModesName        = $serviceMode[0]['service_mode_name'];
+        $payMode                   = $this->model->use('PayModeModel')->GetListById($row['pay_mode_id']);
+        $serviceMode               = $this->model->use('ServiceModeModel')->GetListById($row['service_mode_id']);
+        $payModesId                = $payMode[0]['pay_mode_id'];
+        $payModesName              = $payMode[0]['pay_mode_name'];
+        $serviceModesId            = $serviceMode[0]['service_mode_id'];
+        $serviceModesName          = $serviceMode[0]['service_mode_name'];
         $data['transactions'][]    = array(
           array(
             'transactions_id'      => $row['transactions_id'],
@@ -137,7 +145,7 @@ class Courier extends Controller {
       $this->load->view('layouts/header',$data);
       $this->load->view('layouts/top-navigation',$data);
       $this->load->view('layouts/side-navigation',$data);
-      $this->load->view('pages/courier/transactions',$data);
+      $this->load->view('pages/courier/transactions/'.$page,$data);
       $this->load->view('layouts/footer',$data);
       $this->load->view('layouts/scripts',$data);
     }

@@ -44,6 +44,11 @@ class TransactionsModel extends Model {
         );
     }
 
+
+    public function GetAllTransctionsByAwbNumber($awbNumber) {
+        return $this->db->select('transactions','*', [ 'awb_number' => $awbNumber ]);
+    }
+
     public function GetAllTransctionsShipperIdWithOutLimit($accounts_id) {
         return $this->db->select('transactions','*', 
             [
@@ -75,8 +80,9 @@ class TransactionsModel extends Model {
 
 
     public function UpdateTransactions($data) {
+        $path = $_SESSION['role'] == 'Admin' ? 'admin' : 'courier';
         $this->db->update('transactions',$data,['transactions_id' => $data['transactions_id']]);
-        redirect('admin/transactions/view/'.encode($data['transactions_id']),'Data has been changed.');
+        redirect($path.'/transactions/view/'.encode($data['transactions_id']),'Data has been changed.');
     }
 
 }

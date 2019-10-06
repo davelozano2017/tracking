@@ -77,14 +77,14 @@
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Role:</label>
           <div class="col-lg-10">
-          <input type="text" readonly value="Driver" value="Driver" class="form-control" name="role" required>
+            <input type="text" readonly value="Driver" class="form-control" name="role" required>
           </div>
         </div>
 
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Password (default):</label>
           <div class="col-lg-10">
-          <input type="text" readonly value="secret" class="form-control" name="password" required>
+            <input type="text" readonly value="secret" class="form-control" name="password" required>
           </div>
         </div>
 

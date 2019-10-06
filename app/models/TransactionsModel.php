@@ -78,6 +78,11 @@ class TransactionsModel extends Model {
         return $this->db->count('tracking','*',['accounts_id' => $accounts_id,'status' => 0]);
     }
 
+    public function CreateAssignToDriver($data) {
+        $this->db->insert('tracking',$data);
+        redirect('/courier/transactions/airwaybill/'.encode($data['awb_number']), 'AirWayBill # '.$data['awb_number'].' has been assigned to your driver.');
+    }
+
 
     public function UpdateTransactions($data) {
         $path = $_SESSION['role'] == 'Admin' ? 'admin' : 'courier';

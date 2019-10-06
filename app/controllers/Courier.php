@@ -94,10 +94,20 @@ class Courier extends Controller {
     }
 
     public function transactions($page, $id = null) {
-      $data['provinces']         = $this->model->use('LocationsModel')->GetAllProvinces();
-      $data['countDrivers']      = $this->model->use('AccountModel')->countDriversByAccountsId($_SESSION['accounts_id']);
-      $data['countDelivered']    = $this->model->use('TransactionsModel')->countDeliveredByAccounstId($_SESSION['accounts_id']);
-      $data['countTransactions'] = $this->model->use('TransactionsModel')->CountAllTransactionsById($_SESSION['accounts_id']);
+      $data['provinces']           = $this->model->use('LocationsModel')->GetAllProvinces();
+      $data['countDrivers']        = $this->model->use('AccountModel')->countDriversByAccountsId($_SESSION['accounts_id']);
+      $getDriver                   = $this->model->use('AccountModel')->GetDriversByAccountsId($_SESSION['accounts_id']);
+      foreach($getDriver as $driverRow) {
+        $queryS                    = $this->model->use('AccountModel')->GetDriverByAccountsId($driverRow['drivers_id']);
+        $data['AllDrivers'][]      = array(
+          array(
+            'accounts_id'      => $queryS[0]['accounts_id'],
+            'name'             => $queryS[0]['name'],
+          )
+        );
+      }
+      $data['countDelivered']      = $this->model->use('TransactionsModel')->countDeliveredByAccounstId($_SESSION['accounts_id']);
+      $data['countTransactions']   = $this->model->use('TransactionsModel')->CountAllTransactionsById($_SESSION['accounts_id']);
       if($id == null) {
         $queryAll                  = $this->model->use('TransactionsModel')->GetAllTransctionsShipperIdWithOutLimit($_SESSION['accounts_id']);
       } elseif($page == 'view') {

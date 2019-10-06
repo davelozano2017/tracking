@@ -56,6 +56,11 @@ class AccountModel extends Model {
         return $this->db->select('accounts','*',['role' => $role]);
     }
 
+    public function GetDriversByAccountsId($accounts_id) {
+        return $this->db->select('drivers','*',['accounts_id' => $accounts_id]);
+        
+    }
+
     public function CoutUserByRoles($role) {
         return $this->db->count('accounts','*',['role' => $role]);
     }
@@ -73,8 +78,11 @@ class AccountModel extends Model {
     
     public function GetUserByid($accounts_id) {
         return $this->db->select('accounts', ["[>]province" => ["province_id" => "province_id"]],'*',['accounts.accounts_id' => $accounts_id ]);
-
     }
+
+    public function GetDriverByAccountsId($accounts_id) {
+        return $this->db->select('accounts','*',['accounts_id' => $accounts_id]);
+    } 
 
 }
 

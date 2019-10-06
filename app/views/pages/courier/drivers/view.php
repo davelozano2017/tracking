@@ -36,6 +36,7 @@
       <form action="<?=site_url('Accounts/UpdateUserById')?>" method="POST" data-parsley-validate>
       <input type="hidden" name="token" value="<?=$_SESSION['token']?>">
       <input type="hidden" name="accounts_id" value="<?=encode($getUsers[0]['accounts_id'])?>">
+      <input type="hidden" name="role" value="Driver">
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Name:</label>
           <div class="col-lg-10">
@@ -68,6 +69,17 @@
             <input type="text" class="form-control" value="<?=$getUsers[0]['address']?>" name="address" required>
           </div>
         </div>
+        
+        <div class="form-group row">
+          <label class="col-form-label col-lg-2">Status:</label>
+          <div class="col-lg-10">
+                <select name="status" class="form-control">
+                  <option value="<?=$getUsers[0]['status']?>"><?=$getUsers[0]['status'] == 1 ? 'Not Active' : 'Active' ?></option>
+                  <option value="0">Active</option>
+                  <option value="1">Not Active</option>
+                </select>
+          </div>
+        </div>
 
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Membership Date:</label>
@@ -77,7 +89,7 @@
         </div>
 
           <div class="col-lg-10 ml-lg-auto text-right">
-            <button type="submit" class="btn btn-primary ml-3">Submit <i class="icon-paperplane ml-2"></i></button>
+            <button type="submit" class="btn btn-primary ml-3">Save Changes <i class="icon-paperplane ml-2"></i></button>
           </div>
         </div>
       </form>

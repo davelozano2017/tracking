@@ -18,6 +18,7 @@ class AccountModel extends Model {
                   case 'Admin'; redirect('admin/dashboard'); break;
                   case 'Courier'; redirect('courier/dashboard'); break;
                   case 'Customer'; redirect('customer/dashboard'); break;
+                  case 'Driver'; redirect('driver/dashboard'); break;
                 }
             } else {
                 redirect('login','Invalid username or password');

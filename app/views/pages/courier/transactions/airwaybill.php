@@ -44,7 +44,10 @@ foreach($transactions as $key => $value) {
                   <label class="col-form-label">Assign To:</label>
                   <div class="">
                     <select name="accounts_id" class="form-cotrol">
-                        <option value="<?=encode($value[0]['drivers_id'])?>"><?=$value[0]['drivers_name']?></option>
+                    <?php if($value[0]['drivers_name'] == '') { ?>
+                    <?php } else { ?> 
+                    <option value="<?=encode($value[0]['drivers_id'])?>"><?=$value[0]['drivers_name']?></option>
+                    <?php } ?>
                       <?php foreach($AllDrivers as $keys => $driver) { ?> 
                         <option value="<?=encode($driver[0]['accounts_id'])?>"><?=$driver[0]['name']?></option>
                       <?php } ?>

@@ -19,6 +19,10 @@ class TransactionsModel extends Model {
         return $this->db->select('transactions','*',['GROUP' => 'awb_number']);
     }
 
+    public function GetTransactionsByAWBNumber($awb_number) {
+        return $this->db->select('tracking','*',['awb_number' => $awb_number]);
+    }
+
     public function CountAllTransactions() {
         return $this->db->count('transactions','*',["GROUP" => 'awb_number']);
     } 
@@ -78,8 +82,12 @@ class TransactionsModel extends Model {
         return $this->db->count('tracking','*',['accounts_id' => $accounts_id,'status' => 0]);
     }
 
-    public function CreateAssignToDriver($data) {
-        $this->db->insert('tracking',$data);
+    public function CreateOrUpdateAssignToDriver($data) {
+        if($this->db->has('tracking','*',['awb_number' => $data['awb_number']])) {
+            $this->db->update('tracking',$data,['awb_number' => $data['awb_number']]);
+        } else {
+            $this->db->insert('tracking',$data);
+        }
         redirect('/courier/transactions/airwaybill/'.encode($data['awb_number']), 'AirWayBill # '.$data['awb_number'].' has been assigned to your driver.');
     }
 

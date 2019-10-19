@@ -121,6 +121,8 @@ class Courier extends Controller {
         $queryB                    = $this->model->use('AccountModel')->GetUserByid($row['shipper_id']);
         $queryC                    = $this->model->use('LocationsModel')->GetAllProvincesById($row['origin_id']);
         $queryD                    = $this->model->use('LocationsModel')->GetAllProvincesById($row['destination_id']);
+        $queryE                    = $this->model->use('TransactionsModel')->GetTransactionsByAWBNumber($row['awb_number']);
+        @$queryF                   = $this->model->use('AccountModel')->GetDriverByAccountsId($queryE[0]['accounts_id']);
         $payMode                   = $this->model->use('PayModeModel')->GetListById($row['pay_mode_id']);
         $serviceMode               = $this->model->use('ServiceModeModel')->GetListById($row['service_mode_id']);
         $payModesId                = $payMode[0]['pay_mode_id'];
@@ -145,6 +147,9 @@ class Courier extends Controller {
             'OriginId'             => $queryC[0]['province_id'],
             'Destination'          => $queryD[0]['provDesc'],
             'DestinationId'        => $queryD[0]['province_id'],
+            'drivers_id'           => @$queryF[0]['accounts_id'],
+            'drivers_name'         => @$queryF[0]['name'],
+            'tracking_date'        => @$queryE[0]['tracking_date'],
             'PayModeId'            => $payModesId,
             'PayModeName'          => $payModesName,
             'ServiceModeId'        => $serviceModesId,

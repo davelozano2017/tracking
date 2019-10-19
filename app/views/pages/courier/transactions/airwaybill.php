@@ -37,13 +37,14 @@ foreach($transactions as $key => $value) {
     <div class="col-md-3">
       <div class="card">
         <div class="card-body">
-          <form action="<?=site_url('Transactions/CreateAssignToDriver')?>" method="POST" data-parsley-validate>
+          <form action="<?=site_url('Transactions/CreateOrUpdateAssignToDriver')?>" method="POST" data-parsley-validate>
             <input type="hidden" name="token" value="<?=$_SESSION['token']?>">
             <input type="hidden" name="awb_number" value="<?=encode($value[0]['awbNumber'])?>">
               <div class="form-group">
                   <label class="col-form-label">Assign To:</label>
                   <div class="">
                     <select name="accounts_id" class="form-cotrol">
+                        <option value="<?=encode($value[0]['drivers_id'])?>"><?=$value[0]['drivers_name']?></option>
                       <?php foreach($AllDrivers as $keys => $driver) { ?> 
                         <option value="<?=encode($driver[0]['accounts_id'])?>"><?=$driver[0]['name']?></option>
                       <?php } ?>
@@ -52,9 +53,9 @@ foreach($transactions as $key => $value) {
                 </div>
 
                 <div class="form-group">
-                  <label class="col-form-label">Estimated Delivery Date:</label>
+                  <label class="col-form-label">Estimated Delivery Date: </label>
                   <div class="">
-                    <input type="date" min="<?=date('Y-m-d')?>" class="form-control" name="delivery_date" required>
+                    <input type="date" min="<?=date('Y-m-d')?>" class="form-control" value="<?=$value[0]['tracking_date']?>" name="delivery_date" required>
                   </div>
                 </div>
 

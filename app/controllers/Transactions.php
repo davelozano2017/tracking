@@ -47,20 +47,17 @@ class Transactions extends Controller {
   }
 
 
-  public function CreateAssignToDriver() {
+  public function CreateOrUpdateAssignToDriver() {
     $date = post('delivery_date');
+    $awbNumber = decode(post('awb_number'));
     $data = array(
-      'accounts_id' => decode(post('accounts_id')),
-      'awb_number'  => decode(post('awb_number')),
+      'accounts_id'    => decode(post('accounts_id')),
+      'awb_number'     => $awbNumber,
       'message'     => 'Your package has been packed and is being handed over to our logistics partner. and will be deliver from 
       '.date('F d, Y',strtotime($date)). ' to '. date('F d, Y',strtotime($date. '+3 days')).'(estimated date)', 
+      'tracking_date'  => date('Y-m-d',strtotime($date))
     );
-  
-    $this->model->use('TransactionsModel')->CreateAssignToDriver($data);
+    $this->model->use('TransactionsModel')->CreateOrUpdateAssignToDriver($data);
   }
-
-
-
-
 
 }

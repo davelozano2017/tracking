@@ -143,8 +143,11 @@
 
 					
 						<!-- /main -->
+						<?php } elseif($_SESSION['role'] == 'Driver') { ?>
+							<li class="nav-item">
+								<a href="<?=site_url('courier/dashboard')?>" class="nav-link"><i class="icon-home5"></i><span>Dashboard</span></a>
+							</li>
 						<?php } ?>
-
 				
 					</ul>
 				</div>

@@ -9,12 +9,8 @@ class Accounts extends Controller {
 
 
   public function auth() {
-    if($this->token == post('token')) {
          $data = array('email' => post('email'), 'password' => post('password'));
          $this->model->use('AccountModel')->secureLogin($data);
-     } else {
-         $this->load->view('errors');
-     }
   }
 
   public function CreateNewUser() {

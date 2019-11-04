@@ -27,8 +27,11 @@
   <div class="content">
 
     <!-- Sidebars overview -->
+    <?= !isset($_SESSION['message']) ? '' : '<div class="alert bg-info text-white alert-styled-left alert-dismissible"><button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>'.$_SESSION['message'].'</a></div>'; unset($_SESSION['message']);?>  
     <div class="row">
-      <div class="col-sm-6 col-xl-4">
+    <div class="col-sm-3"></div>
+
+      <div class="col-sm-3 col-xl-3">
         <div class="card card-body">
           <div class="media">
             <div class="mr-3 align-self-center">
@@ -36,29 +39,14 @@
             </div>
 
             <div class="media-body text-right">
-              <h3 class="font-weight-semibold mb-0"><?=number_format($countTransactions)?></h3>
-              <span class="text-uppercase font-size-sm text-muted">All Transactions</span>
+              <h3 class="font-weight-semibold mb-0"><?=@number_format($countPackages)?></h3>
+              <span class="text-uppercase font-size-sm text-muted">Packages</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-sm-6 col-xl-4">
-        <div class="card card-body">
-          <div class="media">
-            <div class="mr-3 align-self-center">
-              <i class="icon-users4 icon-3x text-success-400"></i>
-            </div>
-
-            <div class="media-body text-right">
-              <h3 class="font-weight-semibold mb-0"><?=number_format($countDrivers)?></h3>
-              <span class="text-uppercase font-size-sm text-muted">Drivers</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-xl-4">
+      <div class="col-sm-3 col-xl-3">
         <div class="card card-body">
           <div class="media">
             <div class="mr-3 align-self-center">
@@ -71,61 +59,50 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-      
-    <div class="card">
-      <div class="card-header header-elements-inline">
-        <h5 class="card-title">Top 10 Latest Transactions</h5>
-      </div>
-      <div class="card-body">
-        <table class="table datatable-responsive">
-          <thead>
-            <tr>
-              <th style="width:1px">#</th>
-              <th>AWB #</th>
-              <th>SHIPPER</th>
-              <th>CONSIGNEE</th>
-              <th>ORIGIN</th>
-              <th>DESTINATION</th>
-              <th style="width:1px" class="text-center">ACTIONS</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php if(!isset($transactions)) { ?> 
-            <?php } else { ?>
-              <?php $i = 1; foreach($transactions as $key => $value) { ?>
-              <tr>
-                <td><?=$i++?></td>
-                <td><?=$value[0]['awbNumber']?></td>
-                <td><?=$value[0]['ShipperName']?></td>
-                <td><?=$value[0]['ConsigneeName']?></td>
-                <td><?=$value[0]['Origin']?></td>
-                <td><?=$value[0]['Destination']?></td>
-                <td class="text-center">
-                  <div class="list-icons">
-                    <div class="dropdown">
-                      <a href="#" class="list-icons-item" data-toggle="dropdown">
-                        <i class="icon-menu9"></i>
-                      </a>
+        </div>
+        </div>
 
-                      <div class="dropdown-menu dropdown-menu-right">
-                        <a href="<?=site_url('courier/transactions/airwaybill/'.encode($value[0]['awbNumber']))?>" class="dropdown-item"><i class="icon-eye"></i> View</a>
+    <div class="col-sm-3"></div>
+
+
+    <div class="row">
+      <?php if(!isset($transactions)) { ?> 
+      <div class="col-md-12">
+        <div class="alert alert-info">No record found.</div>
+      </div>
+      <?php } else { ?>
+        <?php foreach($transactions as $key => $value) { ?>
+          <div class="col-lg-4">
+            <div class="card card-body">
+              <div class="media">
+                <div class="mr-3">
+                  <a href="#"><i class="icon-truck text-success-400 icon-2x mt-1"></i></a>
+                </div>
+
+                <div class="media-body">
+                  <h6 class="media-title font-weight-semibold">AWB #: <strong style="color:red"><?=$value[0]['awbNumber']?></strong></h6>
+                  <h6 class="media-title font-weight-semibold">SHIPPER: <strong style="color:red"><?=$value[0]['ShipperName']?></strong></h6>
+                  <h6 class="media-title font-weight-semibold">CONSIGNEE: <strong style="color:red"><?=$value[0]['ConsigneeName']?></strong></h6>
+                  <h6 class="media-title font-weight-semibold">ORIGIN: <strong style="color:red"><?=$value[0]['Origin']?></strong></h6>
+                  <h6 class="media-title font-weight-semibold">DESTINATION: <strong style="color:red"><?=$value[0]['Destination']?></strong></h6>
+                  <h6 class="media-title font-weight-semibold">STATUS: <strong style="color:red"><?=$value[0]['transaction_status']?></strong></h6>
+                  <a  data-toggle="dropdown">
+                    <h6 class="media-title font-weight-semibold dropdown-toggle">ACTION
+                      <div class="dropdown-menu ">
+                        <a href="<?=site_url('transactions/updateTransactionStatusByAWBNumber/'.encode($value[0]['awbNumber']))?>" class="dropdown-item">Delivered</a>
                       </div>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <?php } }?>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <!-- /sidebars overview -->
+                    </h6>
+                  </a> 
+                </div>
+              </div>
+            </div>
+        <?php } ?>
+        </div>
+      <?php } ?>
 
 
-    
-  </div>
+</div>
+</div>
   <!-- /content area -->
 
 

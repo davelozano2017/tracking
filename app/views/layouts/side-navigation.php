@@ -145,7 +145,14 @@
 						<!-- /main -->
 						<?php } elseif($_SESSION['role'] == 'Driver') { ?>
 							<li class="nav-item">
-								<a href="<?=site_url('courier/dashboard')?>" class="nav-link"><i class="icon-home5"></i><span>Dashboard</span></a>
+								<a href="<?=site_url('driver/dashboard')?>" class="nav-link"><i class="icon-home5"></i><span>Dashboard</span></a>
+							</li>
+
+							<li class="nav-item nav-item-submenu">
+								<a href="#" class="nav-link"><i class="icon-copy"></i> <span>Transactions</span></a>
+								<ul class="nav nav-group-sub" data-submenu-title="Layouts">
+									<li class="nav-item"><a href="<?=site_url('driver/transactions/all')?>" class="nav-link">All</a></li>
+								</ul>
 							</li>
 						<?php } ?>
 				

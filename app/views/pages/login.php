@@ -27,7 +27,7 @@
 			<div class="wrap-login100">
 				
 				<form class="login100-form validate-form" method="POST" data-parsley-validate action="<?=site_url('Accounts/auth')?>">
-					<?= !isset($_SESSION['message']) ? '' : '<div class="alert bg-info text-white alert-styled-left alert-dismissible"><button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>'.$_SESSION['message'].'</a></div>'; unset($_SESSION['message']);?>  
+				<?= !isset($_SESSION['message']) ? '' : '<div class="alert bg-info text-white alert-styled-left alert-dismissible"><button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>'.$_SESSION['message'].'</a></div>'; unset($_SESSION['message']);?>  
 
 					<div class="py-5"> <img style="width:100%" class="img-responsive" src="<?=base_url()?>assets/images/logo_light.png" alt=""></div>
 					<input type="hidden" name="token" value="<?=$token?>">
@@ -39,7 +39,7 @@
 							</div>
 						</div>
 					
-						<div class="form-group form-group-feedback form-group-feedback-left">
+						<div class="form-group form-group-feedback form-group-feedback-left"> 
 							<input type="password" class="form-control" name="password" placeholder="Password" required>
 							<div class="form-control-feedback">
 								<i class="icon-lock2 text-muted"></i>
@@ -51,7 +51,7 @@
 					
 				</form>
 
-				<div class="login100-more" style="background-image: url('https://www.cargoexpressintl.us/image_uploads/jljljhkghj.jpg');">
+				<div class="login100-more" style="background-image: url('<?=base_url()?>assets/images/background-login.jpg');">
 				</div>
 			</div>
 		</div>

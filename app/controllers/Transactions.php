@@ -60,4 +60,8 @@ class Transactions extends Controller {
     $this->model->use('TransactionsModel')->CreateOrUpdateAssignToDriver($data);
   }
 
+  public function updateTransactionStatusByAWBNumber($awb_number) {
+    $this->model->use('TransactionsModel')->updateTransactionStatusByAWBNumber($awb_number);
+  }
+
 }

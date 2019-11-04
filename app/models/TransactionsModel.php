@@ -36,6 +36,20 @@ class TransactionsModel extends Model {
         return count($query);
     } 
 
+    public function CountAllPackagesByAwbNumber($awb_number) {
+        $query = $this->db->select('transactions','*', 
+        [
+        "GROUP" => 'awb_number',
+        'awb_number' => $awb_number
+        ]);
+        return count($query);
+    } 
+
+    public function countDeliveredPackages($awb_number) {
+        $query = $this->db->select('transactions','*',['awb_number' => $awb_number]);
+        return count($query);
+    }
+
     public function GetAllTransctionsShipperIdWithLimit($accounts_id) {
         return $this->db->select('transactions','*', 
             ["ORDER" => [
@@ -48,9 +62,13 @@ class TransactionsModel extends Model {
         );
     }
 
+    public function GetAllTransctionsDriverId($accounts_id) {
+        return $this->db->select('tracking','*',["GROUP" => 'awb_number','accounts_id' => $accounts_id]);
+    }
+
 
     public function GetAllTransctionsByAwbNumber($awbNumber) {
-        return $this->db->select('transactions','*', [ 'awb_number' => $awbNumber ]);
+        return $this->db->select('transactions','*', ['awb_number' => $awbNumber ]);
     }
 
     public function GetAllTransctionsShipperIdWithOutLimit($accounts_id) {
@@ -60,6 +78,12 @@ class TransactionsModel extends Model {
             'shipper_id' => $accounts_id
             ]
         );
+    }
+
+    public function updateTransactionStatusByAWBNumber($awbNumber) {
+        $this->db->update('transactions',['transaction_status' => 'Delivered'],['awb_number' => decode($awbNumber)]);
+        $this->db->insert('tracking',['accounts_id' => $_SESSION['accounts_id'],'awb_number' => decode($awbNumber),'message' => 'Your package has been delivered.']);
+        redirect('/driver/dashboard/', 'AirWayBill # '.decode($awbNumber).' status changed to delivered.');
     }
 
     

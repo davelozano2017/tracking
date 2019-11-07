@@ -76,10 +76,10 @@ class Admin extends Controller {
 
     public function transactions($page,$id = null) {
       $data['provinces']         = $this->model->use('LocationsModel')->GetAllProvinces();
-      $data['couriers']          = $this->model->use('AccountModel')->GetUserByRoles('Courier');
-      $data['customers']         = $this->model->use('AccountModel')->GetUserByRoles('Customer');
       $data['service_modes']     = $this->model->use('ServiceModeModel')->GetList();
       $data['pay_modes']         = $this->model->use('PayModeModel')->GetList();
+      $data['couriers']          = $this->model->use('AccountModel')->GetUserByRoles('Courier');
+      $data['customers']         = $this->model->use('AccountModel')->GetUserByRoles('Customer');
       if($id != null) {
         $queryAll                  = $this->model->use('TransactionsModel')->GetAllByTransactionsId(decode($id));
       } else {

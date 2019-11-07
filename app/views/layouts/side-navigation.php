@@ -154,6 +154,17 @@
 									<li class="nav-item"><a href="<?=site_url('driver/transactions/all')?>" class="nav-link">All</a></li>
 								</ul>
 							</li>
+						<?php } elseif($_SESSION['role'] == 'Customer') { ?>
+							<li class="nav-item">
+								<a href="<?=site_url('customer/dashboard')?>" class="nav-link"><i class="icon-home5"></i><span>Dashboard</span></a>
+							</li>
+
+							<li class="nav-item nav-item-submenu">
+								<a href="#" class="nav-link"><i class="icon-copy"></i> <span>Transactions</span></a>
+								<ul class="nav nav-group-sub" data-submenu-title="Layouts">
+									<li class="nav-item"><a href="<?=site_url('customer/transactions/all')?>" class="nav-link">All</a></li>
+								</ul>
+							</li>
 						<?php } ?>
 				
 					</ul>

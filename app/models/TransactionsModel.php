@@ -66,6 +66,9 @@ class TransactionsModel extends Model {
         return $this->db->select('tracking','*',["GROUP" => 'awb_number','accounts_id' => $accounts_id]);
     }
 
+    public function GetAllTransctionsCustomerId($accounts_id) {
+        return $this->db->select('transactions','*',["GROUP" => 'awb_number','accounts_id' => $accounts_id]);
+    }
 
     public function GetAllTransctionsByAwbNumber($awbNumber) {
         return $this->db->select('transactions','*', ['awb_number' => $awbNumber ]);

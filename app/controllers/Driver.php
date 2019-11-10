@@ -15,6 +15,7 @@ class Driver extends Controller {
     }
 
     public function profile() {
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
       $data['provinces'] = $this->model->use('LocationsModel')->GetAllProvinces();
       $this->load->view('layouts/header',$data);
       $this->load->view('layouts/top-navigation',$data);
@@ -26,6 +27,7 @@ class Driver extends Controller {
 
     public function dashboard() {
       $data['countDelivered']    = $this->model->use('TransactionsModel')->countDeliveredByAccounstId($_SESSION['accounts_id']);
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
       $queryAll                  = $this->model->use('TransactionsModel')->GetAllTransctionsDriverId($_SESSION['accounts_id']);
       foreach($queryAll as $row) {
         $rows                      = $this->model->use('TransactionsModel')->GetAllTransctionsByAwbNumber($row['awb_number']);
@@ -77,6 +79,7 @@ class Driver extends Controller {
     }
 
     public function drivers($page,$id = null) {
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
       $data['title']           = 'Drivers';
       $data['id']              = decode($id);
       $data['ShowAllDrivers']  = $this->model->use('CourierModel')->GetAllDriversByAccountId($_SESSION['accounts_id']);
@@ -97,6 +100,7 @@ class Driver extends Controller {
     }
 
     public function transactions($page) {
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
       $data['countDelivered']    = $this->model->use('TransactionsModel')->countDeliveredByAccounstId($_SESSION['accounts_id']);
       $queryAll                  = $this->model->use('TransactionsModel')->GetAllTransctionsDriverId($_SESSION['accounts_id']);
       foreach($queryAll as $row) {

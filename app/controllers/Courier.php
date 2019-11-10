@@ -16,6 +16,7 @@ class Courier extends Controller {
 
     public function profile() {
       $data['provinces'] = $this->model->use('LocationsModel')->GetAllProvinces();
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
       $this->load->view('layouts/header',$data);
       $this->load->view('layouts/top-navigation',$data);
       $this->load->view('layouts/side-navigation',$data);
@@ -26,6 +27,7 @@ class Courier extends Controller {
 
     public function dashboard() {
       $data['countDrivers']      = $this->model->use('AccountModel')->countDriversByAccountsId($_SESSION['accounts_id']);
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
       $data['countDelivered']    = $this->model->use('TransactionsModel')->countDeliveredByAccounstId($_SESSION['accounts_id']);
       $data['countTransactions'] = $this->model->use('TransactionsModel')->CountAllTransactionsById($_SESSION['accounts_id']);
       $queryAll                  = $this->model->use('TransactionsModel')->GetAllTransctionsShipperIdWithLimit($_SESSION['accounts_id']);
@@ -75,6 +77,7 @@ class Courier extends Controller {
 
     public function drivers($page,$id = null) {
       $data['title']           = 'Drivers';
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
       $data['id']              = decode($id);
       $data['ShowAllDrivers']  = $this->model->use('CourierModel')->GetAllDriversByAccountId($_SESSION['accounts_id']);
       $data['provinces']       = $this->model->use('LocationsModel')->GetAllProvinces();
@@ -94,6 +97,7 @@ class Courier extends Controller {
     }
 
     public function transactions($page, $id = null) {
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
       $data['provinces']           = $this->model->use('LocationsModel')->GetAllProvinces();
       $data['countDrivers']        = $this->model->use('AccountModel')->countDriversByAccountsId($_SESSION['accounts_id']);
       $getDriver                   = $this->model->use('AccountModel')->GetDriversByAccountsId($_SESSION['accounts_id']);

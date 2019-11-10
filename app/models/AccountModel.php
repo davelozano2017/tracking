@@ -76,10 +76,26 @@ class AccountModel extends Model {
         $this->db->update('accounts',$data,['accounts_id' => $data['accounts_id']]);
         redirect($path.'/view/'.encode($data['accounts_id']),'Data has been changed.');
     }
+
+
+    public function UpdateProfile($data) {
+        switch($_SESSION['role']) {
+            case 'Admin': $path    = 'admin/profile';break;
+            case 'Courier': $path  = 'courier/profile';break;
+            case 'Customer': $path = 'customer/profile';break;
+            case 'Driver': $path   = 'driver/profile';break;
+        }
+        $this->db->update('accounts',$data,['accounts_id' => $data['accounts_id']]);
+        redirect($path,'Data has been changed.');
+    }
+
+    
+    
     
     public function GetUserByid($accounts_id) {
         return $this->db->select('accounts', ["[>]province" => ["province_id" => "province_id"]],'*',['accounts.accounts_id' => $accounts_id ]);
     }
+    
 
     public function GetDriverByAccountsId($accounts_id) {
         return $this->db->select('accounts','*',['accounts_id' => $accounts_id]);

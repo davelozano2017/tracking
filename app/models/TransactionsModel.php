@@ -67,7 +67,11 @@ class TransactionsModel extends Model {
     }
 
     public function GetAllTransctionsCustomerId($accounts_id) {
-        return $this->db->select('transactions','*',["GROUP" => 'awb_number','accounts_id' => $accounts_id]);
+        return $this->db->select('transactions','*',["GROUP" => 'awb_number','accounts_id' => $accounts_id,'transaction_status[!]' => 'Delivered']);
+    }
+
+    public function GetDeliveredTransactionByCustomerId($accounts_id) {
+        return $this->db->select('transactions','*',["GROUP" => 'awb_number','accounts_id' => $accounts_id,'transaction_status' => 'Delivered']);
     }
 
     public function GetAllTransctionsByAwbNumber($awbNumber) {

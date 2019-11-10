@@ -29,7 +29,7 @@
 							<a href="#">
 								<img src="https://vignette.wikia.nocookie.net/sims/images/3/33/John_Doe.png/revision/latest?cb=20131001222124" class="img-fluid rounded-circle shadow-1 mb-3" width="80" height="80" alt="">
 							</a>
-							<h6 class="mb-0 text-white text-shadow-dark">John Doe Smith</h6>
+							<h6 class="mb-0 text-white text-shadow-dark"><?=$user[0]['name']?></h6>
 						</div>
 													
 						<div class="sidebar-user-material-footer">
@@ -74,6 +74,19 @@
 							</li>
 							<li class="nav-item">
 								<a href="<?=site_url('driver/logout')?>" class="nav-link">
+									<i class="icon-switch2"></i>
+									<span>Logout</span>
+								</a>
+							</li>
+						<?php } elseif($_SESSION['role'] == 'Customer') { ?>
+							<li class="nav-item">
+								<a href="<?=site_url('customer/profile')?>" class="nav-link">
+									<i class="icon-user-plus"></i>
+									<span>Profile</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?=site_url('customer/logout')?>" class="nav-link">
 									<i class="icon-switch2"></i>
 									<span>Logout</span>
 								</a>

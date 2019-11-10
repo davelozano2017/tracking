@@ -31,7 +31,7 @@
     <ul class="navbar-nav ml-md-auto">
       <li class="nav-item dropdown">
         <a href="#" class="navbar-nav-link">
-          Hello John Doe Smith
+          Hello <?=$user[0]['name']?>
         </a>
       </li>
 

@@ -16,6 +16,7 @@ class Admin extends Controller {
 
     public function dashboard() {
       $data['couriers']          = $this->model->use('AccountModel')->CoutUserByRoles('Courier');
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
       $data['customers']         = $this->model->use('AccountModel')->CoutUserByRoles('Customer');
       $data['countTransactions'] = $this->model->use('TransactionsModel')->CountAllTransactions();
       $queryAll                  = $this->model->use('TransactionsModel')->GetAllTransctions();
@@ -65,6 +66,7 @@ class Admin extends Controller {
 
 
     public function profile() {
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
       $data['provinces'] = $this->model->use('LocationsModel')->GetAllProvinces();
       $this->load->view('layouts/header',$data);
       $this->load->view('layouts/top-navigation',$data);
@@ -75,6 +77,7 @@ class Admin extends Controller {
     }
 
     public function transactions($page,$id = null) {
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
       $data['provinces']         = $this->model->use('LocationsModel')->GetAllProvinces();
       $data['service_modes']     = $this->model->use('ServiceModeModel')->GetList();
       $data['pay_modes']         = $this->model->use('PayModeModel')->GetList();
@@ -141,6 +144,7 @@ class Admin extends Controller {
     
     public function users($page,$id = null) {
       $data['token'] = $_SESSION['token'];
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
       $data['provinces'] = $this->model->use('LocationsModel')->GetAllProvinces();
       if($page == 'all') {
         $data['users'] = $this->model->use('AccountModel')->GetUserByRolesExceptAdmin('Admin');
@@ -148,6 +152,7 @@ class Admin extends Controller {
         $accounts_id = decode($id);
         $data['getUsers'] = $this->model->use('AccountModel')->GetUserByid($accounts_id);
       }
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
       $this->load->view('layouts/header',$data);
       $this->load->view('layouts/top-navigation',$data);
       $this->load->view('layouts/side-navigation',$data);
@@ -157,21 +162,23 @@ class Admin extends Controller {
     }
 
     public function reports() {
-      $this->load->view('layouts/header');
-      $this->load->view('layouts/top-navigation');
-      $this->load->view('layouts/side-navigation');
-      $this->load->view('pages/admin/reports');
-      $this->load->view('layouts/footer');
-      $this->load->view('layouts/scripts');
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
+      $this->load->view('layouts/header',$data);
+      $this->load->view('layouts/top-navigation',$data);
+      $this->load->view('layouts/side-navigation',$data);
+      $this->load->view('pages/admin/reports',$data);
+      $this->load->view('layouts/footer',$data);
+      $this->load->view('layouts/scripts',$data);
     }
 
     public function settings() {
-      $this->load->view('layouts/header');
-      $this->load->view('layouts/top-navigation');
-      $this->load->view('layouts/side-navigation');
-      $this->load->view('pages/admin/settings');
-      $this->load->view('layouts/footer');
-      $this->load->view('layouts/scripts');
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
+      $this->load->view('layouts/header',$data);
+      $this->load->view('layouts/top-navigation',$data);
+      $this->load->view('layouts/side-navigation',$data);
+      $this->load->view('pages/admin/settings',$data);
+      $this->load->view('layouts/footer',$data);
+      $this->load->view('layouts/scripts',$data);
     }
 
     public function logout() {

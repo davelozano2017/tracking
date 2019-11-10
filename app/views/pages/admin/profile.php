@@ -28,21 +28,23 @@
 <!-- Content area -->
 <div class="content">
 
+<?= !isset($_SESSION['message']) ? '' : '<div class="alert bg-info text-white alert-styled-left alert-dismissible"><button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>'.$_SESSION['message'].'</a></div>'; unset($_SESSION['message']);?>  
   <!-- Sidebars overview -->
   <div class="card">
     <div class="card-body">
       <form data-parsley-validate action="<?=site_url('Accounts/UpdateProfile')?>" method="POST">
+      <input type="hidden" name="accounts_id" value="<?=encode($user[0]['accounts_id'])?>">
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Name:</label>
           <div class="col-lg-10">
-            <input type="text" class="form-control" name="name" required>
+            <input type="text" class="form-control" name="name" value="<?=$user[0]['name']?>" required>
           </div>
         </div>
 
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Email Address:</label>
           <div class="col-lg-10">
-            <input type="email" class="form-control" name="email" required>
+            <input type="email" class="form-control" name="email" value="<?=$user[0]['email']?>" required>
           </div>
         </div>
 
@@ -50,8 +52,9 @@
           <label class="col-form-label col-lg-2">Province:</label>
           <div class="col-lg-10">
             <select name="province_id" class="form-control">
+                  <option value="<?=encode($user[0]['province_id'])?>" selected><?=$user[0]['provDesc']?></option>
               <?php foreach($provinces as $city) { ?>
-                  <option value="<?=$city['province_id']?>"><?=$city['provDesc']?></option>
+                  <option value="<?=encode($city['province_id'])?>"><?=$city['provDesc']?></option>
               <?php } ?>
             </select>
           </div>
@@ -60,7 +63,7 @@
         <div class="form-group row">
           <label class="col-form-label col-lg-2">Address:</label>
           <div class="col-lg-10">
-            <input type="text" class="form-control" name="email" required>
+            <input type="text" class="form-control" name="address" value="<?=$user[0]['address']?>" required>
           </div>
         </div>
 

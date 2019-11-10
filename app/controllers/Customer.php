@@ -16,6 +16,7 @@ class Customer extends Controller {
 
     public function profile() {
       $data['provinces'] = $this->model->use('LocationsModel')->GetAllProvinces();
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
       $this->load->view('layouts/header',$data);
       $this->load->view('layouts/top-navigation',$data);
       $this->load->view('layouts/side-navigation',$data);
@@ -26,6 +27,7 @@ class Customer extends Controller {
 
     public function dashboard() {
       $data['countDelivered']    = $this->model->use('TransactionsModel')->countDeliveredByAccounstId($_SESSION['accounts_id']);
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
       $queryAll                  = $this->model->use('TransactionsModel')->GetAllTransctionsCustomerId($_SESSION['accounts_id']);
       foreach($queryAll as $row) {
         $rows                      = $this->model->use('TransactionsModel')->GetAllTransctionsByAwbNumber($row['awb_number']);
@@ -78,6 +80,7 @@ class Customer extends Controller {
 
     public function drivers($page,$id = null) {
       $data['title']           = 'Drivers';
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
       $data['id']              = decode($id);
       $data['ShowAllDrivers']  = $this->model->use('CourierModel')->GetAllDriversByAccountId($_SESSION['accounts_id']);
       $data['provinces']       = $this->model->use('LocationsModel')->GetAllProvinces();
@@ -98,13 +101,14 @@ class Customer extends Controller {
 
     public function transactions($page,$id = null) {
       $data['provinces']         = $this->model->use('LocationsModel')->GetAllProvinces();
+      $data['user'] = $this->model->use('AccountModel')->GetUserByid($_SESSION['accounts_id']);
       $data['service_modes']     = $this->model->use('ServiceModeModel')->GetList();
       $data['pay_modes']         = $this->model->use('PayModeModel')->GetList();
       $data['countDelivered']    = $this->model->use('TransactionsModel')->countDeliveredByAccounstId($_SESSION['accounts_id']);
       if($id != null) {
         $queryAll                  = $this->model->use('TransactionsModel')->GetAllByTransactionsId(decode($id));
       } else {
-        $queryAll                  = $this->model->use('TransactionsModel')->GetAllTransctionsCustomerId($_SESSION['accounts_id']);
+        $queryAll                  = $this->model->use('TransactionsModel')->GetDeliveredTransactionByCustomerId($_SESSION['accounts_id']);
       }
       foreach($queryAll as $row) {
         $rows                      = $this->model->use('TransactionsModel')->GetAllTransctionsByAwbNumber($row['awb_number']);
@@ -123,6 +127,8 @@ class Customer extends Controller {
         $data['transactions'][]    = array(
           array(
             'transactions_id'      => $rows[0]['transactions_id'],
+            'Recieved_By'          => $rows[0]['received_by'],
+            'Transaction_Status'   => $rows[0]['transaction_status'],
             'awbNumber'            => $rows[0]['awb_number'],
             'Address'              => $rows[0]['address'],
             'Quantity'             => $rows[0]['quantity'],

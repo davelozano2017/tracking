@@ -85,7 +85,7 @@
                   <h6 class="media-title font-weight-semibold">CONSIGNEE: <strong style="color:red"><?=$value[0]['ConsigneeName']?></strong></h6>
                   <h6 class="media-title font-weight-semibold">ORIGIN: <strong style="color:red"><?=$value[0]['Origin']?></strong></h6>
                   <h6 class="media-title font-weight-semibold">DESTINATION: <strong style="color:red"><?=$value[0]['Destination']?></strong></h6>
-                  <h6 class="media-title font-weight-semibold">STATUS: <strong style="color:red"><?=$value[0]['transaction_status']?></strong></h6>
+                  <h6 class="media-title font-weight-semibold">STATUS: <strong style="color:red"><?=$value[0]['transaction_status'] ? $value[0]['transaction_status'] : 'Pending'?></strong></h6>
                   <a  data-toggle="dropdown">
                     <h6 class="media-title font-weight-semibold dropdown-toggle">ACTION
                       <div class="dropdown-menu ">

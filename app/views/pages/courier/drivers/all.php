@@ -39,7 +39,7 @@
             <th>Email</th>
             <th>Status</th>
             <th>Date of Registration</th>
-            <th style="width:1px"  class="text-center">Actions</th>
+            <th style="width:1px"  class="text-center"></th>
           </tr>
         </thead>
         <tbody>

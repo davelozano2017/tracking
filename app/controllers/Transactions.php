@@ -55,7 +55,7 @@ class Transactions extends Controller {
       'awb_number'     => $awbNumber,
       'message'     => 'Your package has been packed and is being handed over to our logistics partner. and will be deliver from 
       '.date('F d, Y',strtotime($date)). ' to '. date('F d, Y',strtotime($date. '+3 days')).'(estimated date)', 
-      'tracking_date'  => date('Y-m-d',strtotime($date))
+      'date'  => date('Y-m-d',strtotime($date))
     );
     $this->model->use('TransactionsModel')->CreateOrUpdateAssignToDriver($data);
   }

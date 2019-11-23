@@ -40,7 +40,7 @@
             <th>Email</th>
             <th>Role</th>
             <th>Status</th>
-            <th style="width:1px"  class="text-center">Actions</th>
+            <th style="width:1px"  class="text-center"></th>
           </tr>
         </thead>
         <tbody>

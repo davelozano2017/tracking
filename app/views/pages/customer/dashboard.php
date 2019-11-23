@@ -41,10 +41,12 @@
               <th>CONSIGNEE</th>
               <th>ORIGIN</th>
               <th>DESTINATION</th>
-              <th style="width:1px" class="text-center">ACTIONS</th>
+              <th style="width:1px" class="text-center"></th>
             </tr>
           </thead>
           <tbody>
+          <?php if(!isset($transactions)) { ?> 
+          <?php } else { ?> 
             <?php $i = 1; foreach($transactions as $key => $value) { ?>
             <tr>
               <td><?=$i++?></td>
@@ -68,6 +70,8 @@
               </td>
             </tr>
             <?php } ?>
+          <?php } ?>
+           
           </tbody>
         </table>
       </div>

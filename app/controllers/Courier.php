@@ -153,7 +153,7 @@ class Courier extends Controller {
             'DestinationId'        => $queryD[0]['province_id'],
             'drivers_id'           => @$queryF[0]['accounts_id'],
             'drivers_name'         => @$queryF[0]['name'],
-            'tracking_date'        => @$queryE[0]['tracking_date'],
+            'date'                 => @$queryE[0]['date'],
             'PayModeId'            => $payModesId,
             'PayModeName'          => $payModesName,
             'ServiceModeId'        => $serviceModesId,

@@ -58,7 +58,7 @@ foreach($transactions as $key => $value) {
                 <div class="form-group">
                   <label class="col-form-label">Estimated Delivery Date: </label>
                   <div class="">
-                    <input type="date" min="<?=date('Y-m-d')?>" class="form-control" value="<?=$value[0]['tracking_date']?>" name="delivery_date" required>
+                    <input type="date" min="<?=date('Y-m-d')?>" class="form-control" value="<?=$value[0]['date']?>" name="delivery_date" required>
                   </div>
                 </div>
 
@@ -80,7 +80,8 @@ foreach($transactions as $key => $value) {
                 <th>CONSIGNEE</th>
                 <th>ORIGIN</th>
                 <th>DESTINATION</th>
-                <th style="width:1px" class="text-center">ACTIONS</th>
+                <th>DRIVER</th>
+                <th style="width:1px" class="text-center"></th>
               </tr>
             </thead>
             <tbody>
@@ -91,6 +92,7 @@ foreach($transactions as $key => $value) {
                 <td><?=$value[0]['ConsigneeName']?></td>
                 <td><?=$value[0]['Origin']?></td>
                 <td><?=$value[0]['Destination']?></td>
+                <td><?=$value[0]['drivers_name']?></td>
                 <td class="text-center">
                   <div class="list-icons">
                     <div class="dropdown">
